@@ -3,7 +3,7 @@
 using namespace std;
 class cFluidos
 {
-private:
+protected:
 	string fechaCaducidad;
 public:
 	cFluidos(string fechaCaducidad_);

@@ -2,3 +2,7 @@
 
 cPlasma::cPlasma(){}
 cPlasma::~cPlasma(){}
+
+void verificarFechaMaxima() {
+
+}

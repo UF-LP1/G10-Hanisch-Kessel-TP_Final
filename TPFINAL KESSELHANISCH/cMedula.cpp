@@ -3,4 +3,6 @@
 cMedula::cMedula(){}
 cMedula::~cMedula(){}
 
+void verificarFechaMaxima() {
 
+}

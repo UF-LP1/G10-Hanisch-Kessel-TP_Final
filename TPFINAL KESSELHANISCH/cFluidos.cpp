@@ -6,3 +6,7 @@ cFluidos::~cFluidos(){}
 string cFluidos::getFechaCaducidadF() {
 	return this->fechaCaducidad;
 }
+
+ void verificarFechaMaxima() {
+
+}

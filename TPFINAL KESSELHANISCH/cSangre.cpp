@@ -6,3 +6,7 @@ cSangre::~cSangre(){}
 string cSangre::getTipoSangreP() {
 	return this->tipoSangre;
 }
+
+void verificarFechaMaxima() {
+
+}

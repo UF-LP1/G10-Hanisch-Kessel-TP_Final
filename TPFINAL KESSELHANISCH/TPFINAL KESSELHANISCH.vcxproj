@@ -142,22 +142,26 @@
     <ClInclude Include="cBSA.h" />
     <ClInclude Include="cCentroSalud.h" />
     <ClInclude Include="cDonante.h" />
+    <ClInclude Include="cFechas.h" />
     <ClInclude Include="cFluidos.h" />
     <ClInclude Include="cMedula.h" />
     <ClInclude Include="cPaciente.h" />
     <ClInclude Include="cPlasma.h" />
     <ClInclude Include="cReceptor.h" />
+    <ClInclude Include="cRegistro.h" />
     <ClInclude Include="cSangre.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cBSA.cpp" />
     <ClCompile Include="cCentroSalud.cpp" />
     <ClCompile Include="cDonante.cpp" />
+    <ClCompile Include="cFechas.cpp" />
     <ClCompile Include="cFluidos.cpp" />
     <ClCompile Include="cMedula.cpp" />
     <ClCompile Include="cPaciente.cpp" />
     <ClCompile Include="cPlasma.cpp" />
     <ClCompile Include="cReceptor.cpp" />
+    <ClCompile Include="cRegistro.cpp" />
     <ClCompile Include="cSangre.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

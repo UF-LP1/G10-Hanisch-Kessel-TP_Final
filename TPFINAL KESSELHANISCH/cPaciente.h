@@ -3,10 +3,10 @@
 using namespace std;
 class cPaciente
 {
-private:
-	std::string nombreP;
-	std::string fechaNac;
-	std::string sexo;
+protected:
+	string nombreP;
+	string fechaNac;
+	string sexo;
 	const int dni;
 
 public:
