@@ -3,7 +3,6 @@
 cSangre::cSangre(string tipoSangre_){}
 cSangre::~cSangre(){}
 
-string cSangre::getTipoSangreP() { 
-	int num = 8;
+string cSangre::getTipoSangreP() {
 	return this->tipoSangre;
 }
