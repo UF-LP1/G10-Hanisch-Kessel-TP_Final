@@ -5,15 +5,21 @@
 #include <string>
 using namespace std;
 
-class cFecha
+class cFechas
 {
 private:
 	tm fecha;
 public:
-	cFecha();
-	cFecha(int dia, int mes, int anio, int hora, int minutos);
-	~cFecha();
-	bool CompararFechas(cFecha* fecha);
+	cFechas();
+	cFechas(int dia, int mes, int anio, int hora, int minutos);
+	~cFechas();
+
+	tm getFecha1();
+	bool CompararFechas(cFechas* fecha);
+	static int HorasEntreFechas(cFechas* inicio, cFechas aux_fin);
+	void setHoy();
+	bool FechaCompleta();
+
 	int getDia() const { return fecha.tm_mday; }
 	int getMes() const { return fecha.tm_mon; }
 	int getAnio() const { return fecha.tm_year; }

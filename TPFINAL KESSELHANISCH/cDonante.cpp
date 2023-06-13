@@ -6,7 +6,7 @@ cDonante::~cDonante(){}
 bool cDonante::getCumpleRequisitosP() {
 	return this->cumpleRequisitos;
 }
-string cDonante::getFechaExtraccionP() {
+cFechas cDonante::getFechaExtraccionP() {
 	return this->fechaExtraccion;
 }
 float cDonante::getVolumenDP() {

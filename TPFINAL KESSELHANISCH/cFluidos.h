@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
+#include "cFechas.h"
 using namespace std;
+
 class cFluidos
 {
 protected:
@@ -9,8 +11,8 @@ public:
 	cFluidos(string fechaCaducidad_);
 	~cFluidos();
 
-	string getFechaCaducidadF();
+	virtual cFechas FechaCaducidadF();
 
-	virtual void verificarFechaMaxima(); //esta rari, ver dsp. creo que el metodo en cada fluido es distinto asiq no igualo a 0
+	virtual bool verificarFechaMaxima(); //esta rari, ver dsp. creo que el metodo en cada fluido es distinto asiq no igualo a 0
 };
 

@@ -1,11 +1,12 @@
 #pragma once
 #include "cPaciente.h"
+#include "cFechas.h"
 using namespace std;
 
 class cDonante : public cPaciente {
 private:
     bool cumpleRequisitos;
-    string fechaExtraccion;
+    cFechas fechaExtraccion;
     float volumenD;
     string FDonante;
     float cantF;
@@ -15,7 +16,7 @@ public:
     ~cDonante();
 
     bool getCumpleRequisitosP();
-    string getFechaExtraccionP();
+    cFechas getFechaExtraccionP();
     float getVolumenDP();
     string getFDonanteP();
     float getCantF();
