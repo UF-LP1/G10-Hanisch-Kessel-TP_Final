@@ -10,7 +10,7 @@ protected:
 	const int dni;
 
 public:
-	cPaciente(string nombreP_, string fechaNac_, string sexo_, const int dni_);
+	cPaciente(string nombreP_, string fechaNac_, string sexo_);
 	~cPaciente();
 
 	string getNombreP();

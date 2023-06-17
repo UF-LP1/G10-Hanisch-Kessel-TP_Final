@@ -1,10 +1,16 @@
 #include "cDonante.h"
 
-cDonante::cDonante(string nombre_, string fechaNac_, string sexo_, const int dni_, bool cumpleRequisitos_, string fechaExtraccion_, float volumenD_, string FDonante_, float cantF_){}
+cDonante::cDonante(bool cumpleRequisitos_, string fechaExtraccion_, float volumenD_, string FDonante_, float cantF_){
+	this->cumpleRequisitos = cumpleRequisitos_;
+	this->fechaExtraccion = fechaExtraccion_;
+	this->volumenD = volumenD_;
+	this->FDonante = FDonante_;
+	this->cantF = cantF_;
+}
 cDonante::~cDonante(){}
 
 bool cDonante::getCumpleRequisitosP() {
-	return this->cumpleRequisitos;
+	this->cumpleRequisitos;
 }
 cFechas cDonante::getFechaExtraccionP() {
 	return this->fechaExtraccion;
@@ -21,3 +27,4 @@ float cDonante::getCantF() {
 
 bool puedeDonar(){}
 void imprimir(){}
+ 

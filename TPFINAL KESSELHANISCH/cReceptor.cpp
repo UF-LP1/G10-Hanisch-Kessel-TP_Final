@@ -1,6 +1,12 @@
 #include "cReceptor.h"
 
-cReceptor::cReceptor (string FReceptor_, string fechaLista_, int prioridad_, string estado_, float cantF_){}
+cReceptor::cReceptor (string FReceptor_, string fechaLista_, int prioridad_, string estado_, float cantF_){
+	this->FReceptor = FReceptor_;
+	this->fechaLista = fechaLista_;
+	this->prioridad = prioridad_;
+	this->estado = estado_;
+	this->cantF = cantF_;
+}
 cReceptor::~cReceptor(){}
 
 string cReceptor::getFReceptorP() {

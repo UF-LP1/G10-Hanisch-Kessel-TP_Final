@@ -1,6 +1,8 @@
 #include "cSangre.h"
 
-cSangre::cSangre(string tipoSangre_){}
+cSangre::cSangre(string tipoSangre_){
+	this->tipoSangre = tipoSangre_;
+}
 cSangre::~cSangre(){}
 
 string cSangre::getTipoSangreP() {

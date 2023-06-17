@@ -21,7 +21,7 @@ public:
 	void setTelefonoCS(string NuevoTelefono); //solo declaro un setter porque el telefono podria llegar a cambiar
 
 	void ingresarPaciente(); //estos deberian retornar un paciente pero no lo toco mucho hasta hacer las listas
-	void buscarPaciente(); //idem al anterior comentario
+	int buscarPaciente(); //idem al anterior comentario
 	void imprimir();
 };
 

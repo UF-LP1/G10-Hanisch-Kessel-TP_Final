@@ -12,7 +12,7 @@ private:
     float cantF;
 
 public:
-    cDonante(string nombre_, string fechaNac_, string sexo_, const int dni_, bool cumpleRequisitos_, string fechaExtraccion_, float volumenD_, string FDonante_, float cantF_);
+    cDonante(bool cumpleRequisitos_, string fechaExtraccion_, float volumenD_, string FDonante_, float cantF_);
     ~cDonante();
 
     bool getCumpleRequisitosP();

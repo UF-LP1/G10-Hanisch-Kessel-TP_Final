@@ -6,8 +6,8 @@ private:
 public:
 	cBSA();
 	~cBSA();
-	void AgregarReceptor();
-	void AgregarDonante();
+	void AgregarReceptor(int dni); 
+	void AgregarDonante(int dni);
 };
 
 //faltan listas
