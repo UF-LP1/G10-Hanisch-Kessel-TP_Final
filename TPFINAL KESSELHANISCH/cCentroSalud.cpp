@@ -1,5 +1,4 @@
 #include "cCentroSalud.h"
-#include <>
 using namespace std;
 
 cCentroSalud::cCentroSalud(string nombreC_, string direccion_, string partido_, string provincia_, string telefono_){
@@ -29,18 +28,15 @@ void cCentroSalud::setTelefonoCS(string NuevoTelefono){
 	return;
 }
 
-void cCentroSalud::operator+(cReceptor &receptor){
-	this->push_back(receptor);
-}
 
-void cCentroSalud::AgregarReceptor(cReceptor receptor) {
-	this->ListReceptores + receptor; //creo q me marca porque no puse la libreria pero no m acuerdo :p
+void cCentroSalud::AgregarReceptor(cReceptor* receptor) {
+	this->ListReceptores.push_back(receptor); //creo q me marca porque no puse la libreria pero no m acuerdo :p
 }
 void cCentroSalud::operator+(cDonante &donante) {
 	this->push_back(donante) //te parece bien esto?? No se si hay que declarar tanto o usar punteros cDonante* donanteNuevo
-}
-void cCentroSalud::AgregarDonante(cDonante donante) {
-	this -> ListDonantes + donante;
+}// la verdad ni ideaaaaaaaaaa 
+void cCentroSalud::AgregarDonante(cDonante* donante) {
+	this -> ListDonantes.push_back(donante);
 }
 
 /*void cCentroSalud::ingresarPaciente(cPaciente* nuevo) {
@@ -52,7 +48,7 @@ void cCentroSalud::AgregarDonante(cDonante donante) {
 }*/
 	
 
-bool cCentroSalud::buscarPaciente(cPaciente* ListaPacientes,const int dni) {
+bool cCentroSalud::buscarPaciente(cPaciente ListaPacientes,const int dni) {
 	vector<cPaciente>::iterator pac = ListaPacientes.begin(); //no le gusta
 	int cont = 0;
 	while (pac != ListaPacientes.end()) {
@@ -60,8 +56,8 @@ bool cCentroSalud::buscarPaciente(cPaciente* ListaPacientes,const int dni) {
 			return true;
 		}
 		cont++;
-		pac._Ptr = pac._Ptr->_Next; //no me acuerdo bien como habiamos hecho en el tp anterior en las partes q estan en rojo
-	}
+		pac++; //no me acuerdo bien como habiamos hecho en el tp anterior en las partes q estan en rojo
+	}// era asi creo
 
 	//ingresarPaciente();
 	return false;
@@ -70,7 +66,7 @@ bool cCentroSalud::buscarPaciente(cPaciente* ListaPacientes,const int dni) {
 void cCentroSalud::operator-(cPaciente& fuera) {
 	this->erase(fuera);
 }
-void cCentroSalud::eliminarPaciente(cPaciente fuera) {
-	this->ListPacientes - fuera;
+void cCentroSalud::eliminarPaciente(cPaciente* ListaPacientes ,cPaciente* fuera) {
+	this->ListaPacientes.erase(fuera);// este nose pq no anda, capaz vector no tiene erase
 }
 void imprimir() {}

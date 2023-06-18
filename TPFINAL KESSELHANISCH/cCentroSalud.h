@@ -15,7 +15,7 @@ private:
 	string telefono;
 	std::vector <cReceptor*> ListReceptores;
 	std::vector <cDonante*> ListDonantes;
-	std::vector<cPaciente*>ListPacientes; //ListReceptores + ListDonantes, no se si se puede
+	std::vector<cPaciente*>ListaPacientes; //ListReceptores + ListDonantes, no se si se puede
 	
 
 public:
@@ -28,10 +28,10 @@ public:
 	string getTelefonoCS();
 	void setTelefonoCS(string NuevoTelefono); //solo declaro un setter porque el telefono podria llegar a cambiar
 
-	void AgregarReceptor(cReceptor receptor);
-	void AgregarDonante(cDonante donante);
+	void AgregarReceptor(cReceptor* receptor);
+	void AgregarDonante(cDonante* donante);
 	bool buscarPaciente(cPaciente* ListaPacientes, const int dni);
-	void eliminarPaciente(cPaciente fuera); //no tendria que ser (cPaciente* fuera)???
+	void eliminarPaciente(cPaciente* ListaPacientes, cPaciente* fuera); //no tendria que ser (cPaciente* fuera)???
 	void imprimir();
 	void operator+(cReceptor& receptor);
 	void operator+(cDonante& donante);
