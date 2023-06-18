@@ -1,13 +1,14 @@
 #pragma once
+#include <vector>
+#include "cPaciente.h"
+
 class cBSA
 {
 private:
-
+	std::vector<cPaciente*>ListPacientes;
 public:
 	cBSA();
 	~cBSA();
-	void AgregarReceptor(int dni); 
-	void AgregarDonante(int dni);
 };
 
 //faltan listas

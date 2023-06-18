@@ -1,4 +1,5 @@
 #include "cCentroSalud.h"
+#include <>
 using namespace std;
 
 cCentroSalud::cCentroSalud(string nombreC_, string direccion_, string partido_, string provincia_, string telefono_){
@@ -28,33 +29,48 @@ void cCentroSalud::setTelefonoCS(string NuevoTelefono){
 	return;
 }
 
-void ingresarPaciente(*cPaciente nuevo){
-	//aca puedo usar sobrecarga ++?? falta lista
+void cCentroSalud::operator+(cReceptor &receptor){
+	this->push_back(receptor);
 }
-int buscarPaciente(int dni) { 
-	vector<cPaciente>::iterator arti = Art.begin(); //falta lista
-	int cont = 0;
-	while (arti != Art.end()) {
-		if (arti->getDniP() == dni) {
 
+void cCentroSalud::AgregarReceptor(cReceptor receptor) {
+	this->ListReceptores + receptor; //creo q me marca porque no puse la libreria pero no m acuerdo :p
+}
+void cCentroSalud::operator+(cDonante &donante) {
+	this->push_back(donante) //te parece bien esto?? No se si hay que declarar tanto o usar punteros cDonante* donanteNuevo
+}
+void cCentroSalud::AgregarDonante(cDonante donante) {
+	this -> ListDonantes + donante;
+}
+
+/*void cCentroSalud::ingresarPaciente(cPaciente* nuevo) {
+	if (tipoPaciente == "receptor") {
+		AgregarReceptor();
+	}
+	else
+		AgregarDonante();
+}*/
+	
+
+bool cCentroSalud::buscarPaciente(cPaciente* ListaPacientes,const int dni) {
+	vector<cPaciente>::iterator pac = ListaPacientes.begin(); //no le gusta
+	int cont = 0;
+	while (pac != ListaPacientes.end()) {
+		if (pac->getDniP() == dni) {
 			return true;
 		}
 		cont++;
-		arti._Ptr = arti._Ptr->_Next;
+		pac._Ptr = pac._Ptr->_Next; //no me acuerdo bien como habiamos hecho en el tp anterior en las partes q estan en rojo
 	}
-	return false;
-}
-/*bool Buscar(cArticulos* articulo) {
-    vector<cArticulos>::iterator arti = Art.begin();
-    int cont = 0;
-    while (arti != Art.end()) {
-        if (arti->get_Nombre() == nombre) {
 
-            return true;
-        }
-        cont++;
-        arti._Ptr = arti._Ptr->_Next;
-    }
-  return false;
-}*/
+	//ingresarPaciente();
+	return false;
+}
+
+void cCentroSalud::operator-(cPaciente& fuera) {
+	this->erase(fuera);
+}
+void cCentroSalud::eliminarPaciente(cPaciente fuera) {
+	this->ListPacientes - fuera;
+}
 void imprimir() {}
