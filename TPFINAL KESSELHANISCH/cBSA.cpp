@@ -31,7 +31,7 @@ bool cBSA::coincidirFluido(cDonante dona, cReceptor rece) {
 				return true;
 		}
 		if (dona.GetTipoDeSangre() == "A-") {
-			if (this->rece.GetTipoDeSangre() == "A-" || rece.GetTipoDeSangre() == "A+" || rece.GetTipoDeSangre() == "AB+" || rece.GetTipoDeSangre() == "AB-")
+			if (rece.GetTipoDeSangre() == "A-" || rece.GetTipoDeSangre() == "A+" || rece.GetTipoDeSangre() == "AB+" || rece.GetTipoDeSangre() == "AB-")
 				return true;
 		}
 		if (dona.GetTipoDeSangre() == "B+") {
