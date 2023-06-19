@@ -42,32 +42,18 @@ void cCentroSalud::operator-(cDonante* fueraD) {
 	this->ListDonantes.erase(fueraD);
 }
 void cCentroSalud::operator-(cReceptor* fueraR) {
-	this->ListDonantes.erase(fueraR);
+	for (i = 0; i < ListReceptores[i].end(); i++) {
+		ListReceptores.erase(ListReceptores.begin() + i );
+	}
 }
 
 //NO me dejan claro estas funciones
 
-bool cCentroSalud::buscarDonante(cDonante* ListDonantes,const int dni, cDonante* donanteNuevo) {
-	vector<cDonante*>::iterator pac = this-> ListDonantes.begin(); //no le gusta
-	int cont = 0;
-	while (pac != this->ListDonantes.end()) {
-		if (pac->getDniP() == dni) { //a chequear
-			return true;
-		}
-		cont++;
-		pac++; //no me acuerdo bien como habiamos hecho en el tp anterior en las partes q estan en rojo
-	}// era asi creo
-
-	//ingresarPaciente();
-	return false;
-	this->ListDonantes + donanteNuevo; //esto no se si tiene q ir en el main
-
-}
-bool cCentroSalud::buscarReceptor(cReceptor* ListReceptores, const int dni, cReceptor* receptorNuevo) {
+bool cCentroSalud::buscarReceptor(cReceptor* ListReceptores, string nombre, cReceptor* receptorNuevo) {
 	vector<cReceptor*>::iterator pac = this->ListReceptores.begin(); //no le gusta
 	int cont = 0;
 	while (pac != this->ListReceptores.end()) {
-		if (pac->getDniP() == dni) {
+		if (ListReceptores->GetNombre() == nombre) {
 			return true;
 		}
 		cont++;
@@ -75,7 +61,7 @@ bool cCentroSalud::buscarReceptor(cReceptor* ListReceptores, const int dni, cRec
 	}// era asi creo
 
 	return false;
-	this->ListReceptores + receptorNuevo; //esto no se si tiene q ir en el main
+	this->ListReceptores.push_back(receptorNuevo); //esto no se si tiene q ir en el main
 
 }
 

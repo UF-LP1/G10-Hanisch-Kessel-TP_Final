@@ -13,6 +13,7 @@ public:
 	~cReceptor();
 	void SetEstado(eEstadoReceptor NuevoEstado);
 	eEstadoReceptor getEstado();
+	cFechas* GetFechaListaEspera();
 	void SetPrioridad(ePrioridad NuevaPrioridad);
 	void SetFluidoReceptor(eFluido NuevoFluido);
 	eFluido GetFluidoReceptor();

@@ -30,8 +30,7 @@ public:
 	void setTelefonoCS(string NuevoTelefono); //solo declaro un setter porque el telefono podria llegar a cambiar
 
 
-	bool buscarReceptor(cReceptor* ListReceptores, const int dni, cReceptor* receptorNuevo);
-	bool buscarDonante(cDonante* ListDonantes, const int dni, cDonante* donanteNuevo);
+	bool buscarReceptor(cReceptor* ListReceptores, string nombre, cReceptor* receptorNuevo);
 	void imprimir();
 	void operator+(cReceptor* receptor);
 	void operator+(cDonante* donante);

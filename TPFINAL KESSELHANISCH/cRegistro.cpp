@@ -16,6 +16,11 @@ void cReceptor::SetEstado(eEstadoReceptor NuevoEstado) {
 	this->Estado = NuevoEstado;
 }
 
+cFechas* cReceptor::GetFechaListaEspera()
+{
+	return FechaListaEspera;
+}
+
 void cReceptor::SetPrioridad(ePrioridad NuevaPrioridad) {
 	this->PrioridadReceptor = NuevaPrioridad;
 }

@@ -3,13 +3,13 @@
 cBSA::cBSA(){}
 cBSA::~cBSA(){}
 
- cReceptor cBSA::match(cDonante d) {
-	int priority = 1;
-	cReceptor winner;
+ cReceptor* cBSA::match(cDonante* ListDonantes) {
+	ePrioridad priority;
+	cReceptor* winner;
 	
 	for (int i=0; i < ListReceptores.size(); i++) {
-		if (priority < 6 && coincidirFluido(d, ListReceptores[i])==true) { //no se bien como pasarle esa lista
-			winner=contadorBSA();
+		if (priority < 6 && coincidirFluido(ListDonantes, ListReceptores[i])==true) { //no se bien como pasarle esa lista
+			winner=contadorBSA(priority,);
 		}
 			priority++; //creo que no va aca
 	}
@@ -21,47 +21,47 @@ void cBSA::operator+(cPaciente* nuevoMatch) {
 	this->ListMatch.push_back(nuevoMatch);
 }
 
-bool cBSA::coincidirFluido(cDonante dona, cReceptor rece) {
+bool cBSA::coincidirFluido(cDonante* dona, cReceptor* rece) {
 	for (int i = 0; i < ListReceptores.size(); i++) {
-		if (dona.GetTipoDeSangre() == "AB+" && dona.GetTipoDeSangre() == rece.GetTipoDeSangre() {
+		if (dona->GetTipoDeSangre() == eTipoDeSangre::AB_Positivo && dona->GetTipoDeSangre() == rece->GetTipoDeSangre()) {
 			return true;
 		}
-		if (dona.GetTipoDeSangre() == "A+") {
-			if (dona.GetTipoDeSangre() == rece.GetTipoDeSangre() || rece.GetTipoDeSangre() == "AB+")
+		if (dona->GetTipoDeSangre() == eTipoDeSangre::A_Positivo) {
+			if (dona->GetTipoDeSangre() == rece->GetTipoDeSangre() || rece->GetTipoDeSangre() == eTipoDeSangre::AB_Positivo)
 				return true;
 		}
-		if (dona.GetTipoDeSangre() == "A-") {
-			if (rece.GetTipoDeSangre() == "A-" || rece.GetTipoDeSangre() == "A+" || rece.GetTipoDeSangre() == "AB+" || rece.GetTipoDeSangre() == "AB-")
+		if (dona->GetTipoDeSangre() == eTipoDeSangre::A_Negativo) {
+			if (rece->GetTipoDeSangre() == eTipoDeSangre::A_Negativo || rece->GetTipoDeSangre() == eTipoDeSangre::A_Positivo || rece->GetTipoDeSangre() == eTipoDeSangre::AB_Positivo || rece->GetTipoDeSangre() == eTipoDeSangre::AB_Negativo)
 				return true;
 		}
-		if (dona.GetTipoDeSangre() == "B+") {
-			if (rece.GetTipoDeSangre() == "B+" || rece.GetTipoDeSangre() == "AB+")
+		if (dona->GetTipoDeSangre() == eTipoDeSangre::B_Positivo) {
+			if (rece->GetTipoDeSangre() == eTipoDeSangre::B_Positivo || rece->GetTipoDeSangre() == eTipoDeSangre::AB_Positivo)
 				return true;
 		}
-		if (dona.GetTipoDeSangre() == "B-") {
-			if (rece.GetTipoDeSangre() == "B+" || rece.GetTipoDeSangre() == "B-" || rece.GetTipoDeSangre == "AB+" || rece.GetTipoDeSangre == "AB-")
+		if (dona->GetTipoDeSangre() == eTipoDeSangre::B_Negativo) {
+			if (rece->GetTipoDeSangre() == eTipoDeSangre::B_Positivo || rece->GetTipoDeSangre() == eTipoDeSangre::B_Negativo || rece->GetTipoDeSangre() == eTipoDeSangre::AB_Positivo || rece->GetTipoDeSangre() == eTipoDeSangre::AB_Negativo)
 				return true;
 		}
-		if (dona.GetTipoDeSangre() == "AB-") {
-			if (rece.GetTipoDeSangre() == "AB+" || rece.GetTipoDeSangre() == "AB-")
+		if (dona->GetTipoDeSangre() == eTipoDeSangre::AB_Negativo) {
+			if (rece->GetTipoDeSangre() == eTipoDeSangre::AB_Positivo || rece->GetTipoDeSangre() == eTipoDeSangre::AB_Negativo)
 				return true;
 		}
-		if (dona.GetTipoDeSangre() == "O+") {
-			if (rece.GetTipoDeSangre() == "AB+" || rece.GetTipoDeSangre() == "A+" || rece.GetTipoDeSangre() == "B+" || rece.GetTipoDeSangre() == "O+")
+		if (dona->GetTipoDeSangre() == eTipoDeSangre::O_Positivo) {
+			if (rece->GetTipoDeSangre() == eTipoDeSangre::AB_Positivo || rece->GetTipoDeSangre() == eTipoDeSangre::A_Positivo || rece->GetTipoDeSangre() == eTipoDeSangre::B_Positivo || rece->GetTipoDeSangre() == eTipoDeSangre::O_Positivo)
 				return true;
 		}
-		if (dona.GetTipoDeSangre() == "O-")
+		if (dona->GetTipoDeSangre() == eTipoDeSangre::O_Negativo)
 			return true;
 	}
 	return false;
 } 
 
-cReceptor cBSA::contadorBSA(ePrioridad prioridad, cDonante don, cReceptor rec) {
-	cReceptor comparar1;
-	cReceptor comparar2;
-	cReceptor elijoUno;
+cReceptor cBSA::contadorBSA(ePrioridad prioridad, cDonante* don, cReceptor* rec) {
+	cReceptor* comparar1;
+	cReceptor* comparar2;
+	cReceptor* elijoUno;
 	int contador = 0;
-	if (rec.GetPrioridadReceptor() == prioridad && rec.getProvincia() == don.getProvinciaDonante()) {
+	if (rec->GetPrioridadReceptor() == prioridad && rec->getProvincia() == don->getProvinciaDonante()) {
 		contador++;
 
 		if (contador > 1) {
@@ -76,14 +76,14 @@ cReceptor cBSA::contadorBSA(ePrioridad prioridad, cDonante don, cReceptor rec) {
 
 
 
-cReceptor cBSA::compararDonantes(cReceptor uno, cReceptor dos) {
-	cReceptor ganador;
-	if (uno.getEstado() > dos.getEstado())
+cReceptor cBSA::compararDonantes(cReceptor* uno, cReceptor* dos) {
+	cReceptor* ganador;
+	if (uno->getEstado() > dos->getEstado())
 		ganador = dos;
-	else if (uno.getEstado() < dos.getEstado()) //por eso aca me parece q el estado tiene q ser un int
+	else if (uno->getEstado() < dos->getEstado()) //por eso aca me parece q el estado tiene q ser un int
 		ganador = uno;
 	else
-		if () {
+		if (uno->) {
 			//aca comparo quien fue anotado primero en el listado de receptores
 		}
 	return ganador;

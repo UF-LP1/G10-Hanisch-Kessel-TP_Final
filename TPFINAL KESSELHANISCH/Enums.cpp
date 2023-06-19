@@ -57,7 +57,7 @@ string TipoDeSangreToString(eTipoDeSangre sangre) {
 	case eTipoDeSangre::A_Negativo:
 		return"Tipo de sangre: A- ";
 		break;
-	case eTipoDeSangre::B_positivo:
+	case eTipoDeSangre::B_Positivo:
 		return"Tipo de sangre: B + ";
 		break;
 	case eTipoDeSangre::B_Negativo:

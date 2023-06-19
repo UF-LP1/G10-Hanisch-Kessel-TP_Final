@@ -7,6 +7,8 @@ cPaciente::cPaciente() {
 	this->Fluido = Fluido;
 }
 
+
+
 cPaciente::cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, eFluido Fluido, cCentroSalud* CentroDeSalud) {
 	this->Nombre = Nombre;
 	this->FechaNacimeinto = new cFechas(DiaNacimeinto, MesNacimeinto, AnioNacimeinto, HoraNacimeinto, MinutosNacimeinto);
