@@ -12,6 +12,7 @@ public:
 	cReceptor(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, eFluido Fluido,cCentroSalud* CentroDeSalud, int DiaListaEspera, int MesListaEspera, int AnioListaEspera, int HoraListaEspera, int MinutosListaEspera, ePrioridad Prioridad, eEstadoReceptor Estado);
 	~cReceptor();
 	void SetEstado(eEstadoReceptor NuevoEstado);
+	eEstadoReceptor getEstado();
 	void SetPrioridad(ePrioridad NuevaPrioridad);
 	void SetFluidoReceptor(eFluido NuevoFluido);
 	eFluido GetFluidoReceptor();

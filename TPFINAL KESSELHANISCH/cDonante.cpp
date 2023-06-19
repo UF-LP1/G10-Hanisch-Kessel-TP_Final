@@ -50,9 +50,12 @@ void cDonante::setSinEnfermedadSangre(bool sinEnfermedades_) {
 void cDonante::setPesoPacienteAct(float pesoP_) {
 	this->pesoP = pesoP_;
 }
-bool puedeDonar(bool sinTattos_,bool sinEnfermedades_, float pesoP_){
-	int edad = getFechaHoy(); // aca haria una diferencia entre el dia de hoy y la fecha de nacimiento, lo veo dsp tengo sueño
-	if (sinTattos_ == true && sinEnfermedades_ == true && edad >= 18 && edad <= 65 && pesoP_ >= 50) {
+bool puedeDonar(bool sinTattos_,bool sinEnfermedades_, float pesoP_, cFechas ){
+	int edad;
+	cFechas diferenciaDias, fechaDeHoy;
+	fechaDeHoy.setHoy();
+	edad = diferenciaDias.HorasEntreFechas(&, fechaDeHoy); 
+	if (sinTattos_ == true && sinEnfermedades_ == true && edad >= 157680 && edad <= 569400 && pesoP_ >= 50) {
 		return true;
 	}
 	return false;

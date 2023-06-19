@@ -3,66 +3,88 @@
 cBSA::cBSA(){}
 cBSA::~cBSA(){}
 
- cReceptor cBSA::match(cDonante* d, cReceptor* receptorFeliz) {
+ cReceptor cBSA::match(cDonante d) {
 	int priority = 1;
-	int cont = 0;
-	int i;
+	cReceptor winner;
 	
-	for (i=0; i < ListReceptores.size(); i++) {
-		if (cont == 0 && priority < 6 && coincidirFluido()==true) {
-			contadorBSA( cont, priority);
+	for (int i=0; i < ListReceptores.size(); i++) {
+		if (priority < 6 && coincidirFluido(d, ListReceptores[i])==true) { //no se bien como pasarle esa lista
+			winner=contadorBSA();
 		}
-			priority++;
+			priority++; //creo que no va aca
 	}
 	
-	receptorFeliz= this->ListReceptores[i];
-	
-	if (cont == 1) {
-		this->ListMatch + d + receptorFeliz; //hubo match, solo hay un paciente que coincide con todo.
-		this->ListDonantes - d; //no me tomaba el erase
-		this->ListReceptores - receptorFeliz;
-		/*llamo a estas funciones para eliminar a donante y receptor de sus listas.
-		no se por que no me las toma si inclui a la clase cCentroSalud*/
-	}
-	else
-		return NULL; //no coincide con ningun paciente
+	return 
 }
 
 void cBSA::operator+(cPaciente* nuevoMatch) {
 	this->ListMatch.push_back(nuevoMatch);
 }
 
-bool cBSA::coincidirFluido() {
+bool cBSA::coincidirFluido(cDonante dona, cReceptor rece) {
 	for (int i = 0; i < ListReceptores.size(); i++) {
-		if () {
-			//aca hago todo el bardo para ver si coincide el tipo de sangre, si es asi:
-			//___==true
+		if (dona.GetTipoDeSangre() == "AB+" && dona.GetTipoDeSangre() == rece.GetTipoDeSangre() {
+			return true;
 		}
+		if (dona.GetTipoDeSangre() == "A+") {
+			if (dona.GetTipoDeSangre() == rece.GetTipoDeSangre() || rece.GetTipoDeSangre() == "AB+")
+				return true;
+		}
+		if (dona.GetTipoDeSangre() == "A-") {
+			if (this->rece.GetTipoDeSangre() == "A-" || rece.GetTipoDeSangre() == "A+" || rece.GetTipoDeSangre() == "AB+" || rece.GetTipoDeSangre() == "AB-")
+				return true;
+		}
+		if (dona.GetTipoDeSangre() == "B+") {
+			if (rece.GetTipoDeSangre() == "B+" || rece.GetTipoDeSangre() == "AB+")
+				return true;
+		}
+		if (dona.GetTipoDeSangre() == "B-") {
+			if (rece.GetTipoDeSangre() == "B+" || rece.GetTipoDeSangre() == "B-" || rece.GetTipoDeSangre == "AB+" || rece.GetTipoDeSangre == "AB-")
+				return true;
+		}
+		if (dona.GetTipoDeSangre() == "AB-") {
+			if (rece.GetTipoDeSangre() == "AB+" || rece.GetTipoDeSangre() == "AB-")
+				return true;
+		}
+		if (dona.GetTipoDeSangre() == "O+") {
+			if (rece.GetTipoDeSangre() == "AB+" || rece.GetTipoDeSangre() == "A+" || rece.GetTipoDeSangre() == "B+" || rece.GetTipoDeSangre() == "O+")
+				return true;
+		}
+		if (dona.GetTipoDeSangre() == "O-")
+			return true;
 	}
 	return false;
-}
+} 
 
-int cBSA::contadorBSA(int contador, ePrioridad prioridad) {
-	
-	for (int i = 0; i < ListReceptores.size(); i++) {
-		if (ListReceptores[i]->GetPrioridadReceptor() == prioridad) {
-			if (ListReceptores[i]->getProvincia()==ListDonantes[i]->getProvinciaDonante()) {
-				//aca veo si coincide la provincia y cantidad de fluido, si es asi:
-				contador++; //ver cantidad de pacientes con esa prioridad
-				/*
-				if(cont>1)
-				compararDonantes();
-				*/
-			}
+cReceptor cBSA::contadorBSA(ePrioridad prioridad, cDonante don, cReceptor rec) {
+	cReceptor comparar1;
+	cReceptor comparar2;
+	cReceptor elijoUno;
+	int contador = 0;
+	if (rec.GetPrioridadReceptor() == prioridad && rec.getProvincia() == don.getProvinciaDonante()) {
+		contador++;
+
+		if (contador > 1) {
+			elijoUno = compararDonantes(comparar1, comparar2);
+			comparar1 = elijoUno;
 		}
+		else if (contador == 1)
+			rec = comparar1;     //esto esta casi listo, falta igualar comparar1 con el primer receptor que entro e igualar comparar2 con el segundo que entro que no se bien como plantearlo
 	}
-
-	return contador;
+	return elijoUno; 
 }
 
 
 
-cReceptor cBSA::compararDonantes() {
-	//aca no se como hacer entre esos pacientes, pero compararia primero el estado y dsp la fecha
-	//cuando termino de comparar enceuntro al receptor que voy a mandar para hacer el match
+cReceptor cBSA::compararDonantes(cReceptor uno, cReceptor dos) {
+	cReceptor ganador;
+	if (uno.getEstado() > dos.getEstado())
+		ganador = dos;
+	else if (uno.getEstado() < dos.getEstado()) //por eso aca me parece q el estado tiene q ser un int
+		ganador = uno;
+	else
+		if () {
+			//aca comparo quien fue anotado primero en el listado de receptores
+		}
+	return ganador;
 }

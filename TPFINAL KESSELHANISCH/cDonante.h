@@ -29,6 +29,6 @@ public:
     void setPesoPacienteAct(float pesoP_);
     
 
-    bool puedeDonar();
+    bool puedeDonar(bool sinTattos_, bool sinEnfermedades_, float pesoP_, cFechas* fNac);
     void imprimir();
 };

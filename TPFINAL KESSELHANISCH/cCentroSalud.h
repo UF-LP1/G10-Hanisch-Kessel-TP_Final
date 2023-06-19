@@ -29,8 +29,7 @@ public:
 	string getTelefonoCS();
 	void setTelefonoCS(string NuevoTelefono); //solo declaro un setter porque el telefono podria llegar a cambiar
 
-	void AgregarReceptor(cReceptor* receptor);
-	void AgregarDonante(cDonante* donante);
+
 	bool buscarReceptor(cReceptor* ListReceptores, const int dni, cReceptor* receptorNuevo);
 	bool buscarDonante(cDonante* ListDonantes, const int dni, cDonante* donanteNuevo);
 	void imprimir();
