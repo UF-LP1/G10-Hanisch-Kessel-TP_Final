@@ -1,5 +1,7 @@
 #include "cBSA.h"
 #include "cCentroSalud.h"
+#include "cFechas.h"
+
 cBSA::cBSA(){}
 cBSA::~cBSA(){}
 
@@ -80,11 +82,10 @@ cReceptor cBSA::compararDonantes(cReceptor* uno, cReceptor* dos) {
 	cReceptor* ganador;
 	if (uno->getEstado() > dos->getEstado())
 		ganador = dos;
-	else if (uno->getEstado() < dos->getEstado()) //por eso aca me parece q el estado tiene q ser un int
+	else if (uno->getEstado() < dos->getEstado()) 
 		ganador = uno;
 	else
-		if (uno->) {
-			//aca comparo quien fue anotado primero en el listado de receptores
-		}
+		ganador = CompararFechas(uno->GetFechaListaEspera(), dos->GetFechaListaEspera()); //no le gusto no se por que
+
 	return ganador;
 }

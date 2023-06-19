@@ -53,18 +53,28 @@ bool cFechas::FechaCompleta() {
 		return dif;
 	}
 }
-bool cFechas::CompararFechas(cFechas* fecha) {
-	int timedif = 0;
-	time_t FechaActual = 0;
-	time(&FechaActual);
-	time_t fecha1 = mktime(&(fecha->fecha));
-	timedif = difftime(FechaActual, fecha1);
-	if (timedif < 72000)
-		return true;
-	else
-		return false;
+ cFechas cFechas::CompararFechas(cFechas fecha1, cFechas fecha2) {
+	 int fechaUno, fechaDos;
+	 cFechas diferencia1, diferencia2, fechaHoy;
+	 fechaHoy.setHoy();
+	 fechaUno = diferencia1.HorasEntreFechas(&fecha1, fechaHoy);
+	 fechaDos = diferencia2.HorasEntreFechas(&fecha1, fechaHoy);
+	 if ((fechaUno - fechaDos) > 0)
+		 return fecha1;
+	 else
+		 return fecha2;
 }
-
+ /*
+    int timedif = 0;
+	 time_t fechaUno = mktime(&(fecha1->fecha));
+	 time_t fechaDos = mktime(&(fecha2->fecha));
+	 timedif = difftime(fechaUno, fechaDos);
+	if (timedif < 0)
+		return fecha1;
+	else
+		return fecha2; //no me gusta:)
+ 
+ */
 string cFechas::to_stringFecha() const {
 	return "\tFecha: " + to_string(fecha.tm_mday) + "/" + to_string(fecha.tm_mon + 1) + "/" + to_string(fecha.tm_year + 1900) +
 		"\t Hora:" + to_string(fecha.tm_hour) + ":" + to_string(fecha.tm_min);
