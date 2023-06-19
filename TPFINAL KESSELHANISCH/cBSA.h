@@ -17,7 +17,7 @@ public:
 	cReceptor match(cDonante* d, cReceptor* receptorFeliz);
 	void operator+(cPaciente* nuevoMatch);
 	cReceptor compararDonantes();
-	int contadorBSA(int contador, int prioridad);
+	int contadorBSA(int contador, ePrioridad prioridad);
 	bool coincidirFluido();
 	/*yo quiero que, si hay match entre paciente y donante, estos dos sean agregados a una lista de match que sera registrada en cRegistro
 	quiero que ambos pacientes sean eliminados de sus respectivas listas

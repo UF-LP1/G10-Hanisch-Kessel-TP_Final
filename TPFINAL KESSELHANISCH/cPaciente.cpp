@@ -1,29 +1,57 @@
 #include "cPaciente.h"
 
-cPaciente::cPaciente(string nombreP_, string fechaNac_, string sexo_, string telefonoP_, string mailP_) {
-	this->nombreP = nombreP_;
-	this->fechaNac = fechaNac_;
-	this-> sexo = sexo_;
-	this->telefonoP = telefonoP_;
-	this->mailP = mailP_;
+cPaciente::cPaciente() {
+	this->Nombre = "";
+	this->NumeroTelefono = "";
+	this->Sangre = Sangre;
+	this->Fluido = Fluido;
 }
-cPaciente::~cPaciente(){}
 
-string cPaciente:: getNombreP() {
-	return this->nombreP;
+cPaciente::cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, eFluido Fluido, cCentroSalud* CentroDeSalud) {
+	this->Nombre = Nombre;
+	this->FechaNacimeinto = new cFechas(DiaNacimeinto, MesNacimeinto, AnioNacimeinto, HoraNacimeinto, MinutosNacimeinto);
+	this->NumeroTelefono = NumeroTelefono;
+	this->Sangre = Sangre;
+	this->CentroDeSalud = CentroDeSalud;
 }
-string cPaciente::getFechaNacP() {
-	return this->fechaNac;
-}
-string cPaciente::getSexoP() {
-	return this->sexo;
-}
-const int cPaciente::getDniP() {
-	return this->dni;
-}
-void cPaciente::setTelefonoPac(string telefonoP_) {
-	this->telefonoP = telefonoP_;
-}
-void imprimir() {
 
+cPaciente::~cPaciente() {
+	delete FechaNacimeinto;
+}
+
+bool cPaciente::operator==(const cPaciente& OtroPaciente) {
+	if (this->Nombre == OtroPaciente.Nombre)
+		return true;
+	return false;
+}
+
+void cPaciente::SetCentroDeSalud(cCentroSalud* CentroDeSalud) {
+	this->CentroDeSalud = CentroDeSalud;
+}
+
+
+
+eTipoDeSangre cPaciente::GetTipoDeSangre() const {
+	return Sangre;
+}
+
+eFluido cPaciente::GetFluido() const
+{
+	return eFluido();
+}
+
+string cPaciente::GetNombre() const {
+	return Nombre;
+}
+
+cCentroSalud* cPaciente::GetCentroDeSalud() const {
+	return CentroDeSalud;
+}
+
+string cPaciente::ToStringPaciente() const {
+	return
+		"\n Nombre:" + Nombre +
+		"\n Numero de Telefono: " + NumeroTelefono +
+		"\n Fecha de nacimeiento: " + FechaNacimeinto->to_stringFecha() +
+		"\n Tipo de sangre: " + TipoDeSangreToString(Sangre);
 }

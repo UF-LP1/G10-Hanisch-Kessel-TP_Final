@@ -1,7 +1,7 @@
 #include "cCentroSalud.h"
 #include <iostream>
 using namespace std;
-
+//No pude arreglar nada
 cCentroSalud::cCentroSalud(string nombreC_, string direccion_, string partido_, string provincia_, string telefono_){
 	this->nombreC = nombreC_;
 	this->direccion = direccion_;
@@ -20,6 +20,9 @@ string cCentroSalud::getDireccionCS(){
 }
 string cCentroSalud::getPartidoCS() {
 	return this->partido;
+}
+string cCentroSalud::getProvinciaCS() {
+	return this->provincia;
 }
 string cCentroSalud:: getTelefonoCS() {
 	return this->telefono;
@@ -42,10 +45,10 @@ void cCentroSalud::operator-(cReceptor* fueraR) {
 	this->ListDonantes.erase(fueraR);
 }
 
+//NO me dejan claro estas funciones
 
-
-bool cCentroSalud::buscarDonante(cDonante ListDonantes,const int dni, cDonante* donanteNuevo) {
-	vector<cPaciente>::iterator pac = this->ListDonantes.begin(); //no le gusta
+bool cCentroSalud::buscarDonante(cDonante* ListDonantes,const int dni, cDonante* donanteNuevo) {
+	vector<cDonante*>::iterator pac = this-> ListDonantes.begin(); //no le gusta
 	int cont = 0;
 	while (pac != this->ListDonantes.end()) {
 		if (pac->getDniP() == dni) { //a chequear
@@ -60,10 +63,10 @@ bool cCentroSalud::buscarDonante(cDonante ListDonantes,const int dni, cDonante* 
 	this->ListDonantes + donanteNuevo; //esto no se si tiene q ir en el main
 
 }
-bool cCentroSalud::buscarReceptor(cReceptor ListReceptores, const int dni, cReceptor* receptorNuevo) {
-	vector<cPaciente>::iterator pac = this->ListDonantes.begin(); //no le gusta
+bool cCentroSalud::buscarReceptor(cReceptor* ListReceptores, const int dni, cReceptor* receptorNuevo) {
+	vector<cReceptor*>::iterator pac = this->ListReceptores.begin(); //no le gusta
 	int cont = 0;
-	while (pac != this->ListDonantes.end()) {
+	while (pac != this->ListReceptores.end()) {
 		if (pac->getDniP() == dni) {
 			return true;
 		}

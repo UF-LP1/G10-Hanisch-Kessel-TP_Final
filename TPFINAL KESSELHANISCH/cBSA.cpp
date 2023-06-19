@@ -10,7 +10,7 @@ cBSA::~cBSA(){}
 	
 	for (i=0; i < ListReceptores.size(); i++) {
 		if (cont == 0 && priority < 6 && coincidirFluido()==true) {
-			contadorBSA(int cont, int priority);
+			contadorBSA( cont, priority);
 		}
 			priority++;
 	}
@@ -42,10 +42,11 @@ bool cBSA::coincidirFluido() {
 	return false;
 }
 
-int cBSA::contadorBSA(int contador, int prioridad) {
+int cBSA::contadorBSA(int contador, ePrioridad prioridad) {
+	
 	for (int i = 0; i < ListReceptores.size(); i++) {
-		if (ListReceptores[i]->getPrioridadP() == prioridad) {
-			if () {
+		if (ListReceptores[i]->GetPrioridadReceptor() == prioridad) {
+			if (ListReceptores[i]->getProvincia()==ListDonantes[i]->getProvinciaDonante()) {
 				//aca veo si coincide la provincia y cantidad de fluido, si es asi:
 				contador++; //ver cantidad de pacientes con esa prioridad
 				/*
@@ -56,7 +57,6 @@ int cBSA::contadorBSA(int contador, int prioridad) {
 		}
 	}
 
-	}
 	return contador;
 }
 

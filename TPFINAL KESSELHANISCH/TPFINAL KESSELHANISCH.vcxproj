@@ -150,6 +150,7 @@
     <ClInclude Include="cReceptor.h" />
     <ClInclude Include="cRegistro.h" />
     <ClInclude Include="cSangre.h" />
+    <ClInclude Include="Enums.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cBSA.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="cReceptor.cpp" />
     <ClCompile Include="cRegistro.cpp" />
     <ClCompile Include="cSangre.cpp" />
+    <ClCompile Include="Enums.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,26 +1,29 @@
 #pragma once
 #include <string>
+#include "cFechas.h"
+#include "Enums.h"
+#include "cCentroSalud.h"
 using namespace std;
 class cPaciente
 {
-protected:
-	string nombreP;
-	string fechaNac;
-	string sexo;
-	const int dni;
-	string telefonoP;
-	string mailP;
-
+protected: //Cambie algunos atributos a enums y los que eran tipo fecha y faltaba el centro de salud
+	string Nombre;
+	cFechas* FechaNacimeinto = NULL;
+	eSexo SexoPaciente;
+	string NumeroTelefono;
+	eTipoDeSangre Sangre;
+	eFluido Fluido;
+	cCentroSalud* CentroDeSalud = NULL;
 public:
-	cPaciente(string nombreP_, string fechaNac_, string sexo_, string telefonoP_, string mailP_);
-	~cPaciente();
-
-	string getNombreP();
-	string getFechaNacP();
-	string getSexoP();
-	const int getDniP(); //no me convence el const
-	void setTelefonoPac(string telefonoP_);
-	void imprimir();
-
+	cPaciente();
+	cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, eFluido Fluido, cCentroSalud* CentroDeSalud);
+	virtual ~cPaciente();
+	void SetCentroDeSalud(cCentroSalud* CentroDeSalud);
+	eTipoDeSangre GetTipoDeSangre() const;
+	eFluido GetFluido() const;
+	string GetNombre() const;
+	cCentroSalud* GetCentroDeSalud() const;
+	string ToStringPaciente() const;
+	bool operator==(const cPaciente& OtroPaciente);
+	virtual void imprimir() = 0;
 };
-
