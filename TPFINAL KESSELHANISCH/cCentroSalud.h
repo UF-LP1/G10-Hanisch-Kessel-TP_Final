@@ -29,12 +29,10 @@ public:
 	string getTelefonoCS();
 	void setTelefonoCS(string NuevoTelefono); //solo declaro un setter porque el telefono podria llegar a cambiar
 
-
+	void IngresarPaciente(cPaciente* paciente);
+	cCentroSalud& operator-(cPaciente* paciente);
+	cCentroSalud& operator+(cPaciente* paciente);
 	bool buscarReceptor(cReceptor* ListReceptores, string nombre, cReceptor* receptorNuevo);
 	void imprimir();
-	void operator+(cReceptor* receptor);
-	void operator+(cDonante* donante);
-	void operator-(cDonante* fueraD);
-	void operator- (cReceptor * fueraR);
-};
+	
 

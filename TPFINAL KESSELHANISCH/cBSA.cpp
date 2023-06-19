@@ -1,19 +1,19 @@
 #include "cBSA.h"
 #include "cCentroSalud.h"
-#include "cFechas.h"
+
 
 cBSA::cBSA(){}
 cBSA::~cBSA(){}
 
- cReceptor* cBSA::match(cDonante* ListDonantes) {
-	ePrioridad priority;
+ cReceptor* cBSA::match(cDonante* don) {
+	ePrioridad priority = ePrioridad::Urgente;
 	cReceptor* winner;
 	
-	for (int i=0; i < ListReceptores.size(); i++) {
-		if (priority < 6 && coincidirFluido(ListDonantes, ListReceptores[i])==true) { //no se bien como pasarle esa lista
-			winner=contadorBSA(priority,);
+	for (int i= 0; i < ListReceptores.size(); i++) {
+		if (priority < ePrioridad::Muy_baja && coincidirFluido(don, ListReceptores[i])==true) { //no se bien como pasarle esa lista
+			winner=contadorBSA(priority,don,ListReceptores[i]);
 		}
-			priority++; //creo que no va aca
+			
 	}
 	
 	return 
@@ -58,7 +58,7 @@ bool cBSA::coincidirFluido(cDonante* dona, cReceptor* rece) {
 	return false;
 } 
 
-cReceptor cBSA::contadorBSA(ePrioridad prioridad, cDonante* don, cReceptor* rec) {
+cReceptor* cBSA::contadorBSA(ePrioridad prioridad, cDonante* don, cReceptor* rec) {
 	cReceptor* comparar1;
 	cReceptor* comparar2;
 	cReceptor* elijoUno;
@@ -68,7 +68,7 @@ cReceptor cBSA::contadorBSA(ePrioridad prioridad, cDonante* don, cReceptor* rec)
 
 		if (contador > 1) {
 			elijoUno = compararDonantes(comparar1, comparar2);
-			comparar1 = elijoUno;
+			 comparar1= elijoUno;
 		}
 		else if (contador == 1)
 			rec = comparar1;     //esto esta casi listo, falta igualar comparar1 con el primer receptor que entro e igualar comparar2 con el segundo que entro que no se bien como plantearlo
@@ -78,14 +78,20 @@ cReceptor cBSA::contadorBSA(ePrioridad prioridad, cDonante* don, cReceptor* rec)
 
 
 
-cReceptor cBSA::compararDonantes(cReceptor* uno, cReceptor* dos) {
+cReceptor* cBSA::compararDonantes(cReceptor* uno, cReceptor* dos) {
 	cReceptor* ganador;
+	cFechas* fecha;
 	if (uno->getEstado() > dos->getEstado())
 		ganador = dos;
 	else if (uno->getEstado() < dos->getEstado()) 
 		ganador = uno;
 	else
-		ganador = CompararFechas(uno->GetFechaListaEspera(), dos->GetFechaListaEspera()); //no le gusto no se por que
-
+		fecha = fecha->CompararFechas( uno, dos); //no le gusto no se por que
+	if (fecha == uno->GetFechaListaEspera()) {
+		ganador = uno;
+	}
+	else {
+		ganador = dos;
+	}
 	return ganador;
 }

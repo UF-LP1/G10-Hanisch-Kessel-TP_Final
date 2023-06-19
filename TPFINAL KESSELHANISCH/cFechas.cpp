@@ -53,16 +53,16 @@ bool cFechas::FechaCompleta() {
 		return dif;
 	}
 }
- cFechas cFechas::CompararFechas(cFechas fecha1, cFechas fecha2) {
+ cFechas* cFechas::CompararFechas(cReceptor* fecha1, cReceptor* fecha2) {
 	 int fechaUno, fechaDos;
 	 cFechas diferencia1, diferencia2, fechaHoy;
 	 fechaHoy.setHoy();
-	 fechaUno = diferencia1.HorasEntreFechas(&fecha1, fechaHoy);
-	 fechaDos = diferencia2.HorasEntreFechas(&fecha1, fechaHoy);
+	 fechaUno = diferencia1.HorasEntreFechas(fecha1->GetFechaListaEspera(), fechaHoy);
+	 fechaDos = diferencia2.HorasEntreFechas(fecha2->GetFechaListaEspera(), fechaHoy);
 	 if ((fechaUno - fechaDos) > 0)
-		 return fecha1;
+		 return fecha1->GetFechaListaEspera();
 	 else
-		 return fecha2;
+		 return fecha2->GetFechaListaEspera();
 }
  /*
     int timedif = 0;

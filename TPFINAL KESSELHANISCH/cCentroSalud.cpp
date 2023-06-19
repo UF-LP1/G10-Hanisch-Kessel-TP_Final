@@ -32,23 +32,63 @@ void cCentroSalud::setTelefonoCS(string NuevoTelefono){
 	return;
 }
 
-void cCentroSalud::operator+(cDonante* donanteN) {
-	this->ListDonantes.push_back(donanteN);
-}
-void cCentroSalud::operator+(cReceptor* receptorN) {
-	this->ListReceptores.push_back(receptorN);
-}
-void cCentroSalud::operator-(cDonante* fueraD) {
-	this->ListDonantes.erase(fueraD);
-}
-void cCentroSalud::operator-(cReceptor* fueraR) {
-	for (i = 0; i < ListReceptores[i].end(); i++) {
-		ListReceptores.erase(ListReceptores.begin() + i );
+
+
+// ingresamos los pacientes y vemos su son donantes o recep
+void cCentroSalud::IngresarPaciente(cPaciente*paciente) {
+	if (dynamic_cast<cDonante*>(paciente)) {
+		ListDonantes.push_back(dynamic_cast<cDonante*>(paciente));
+		std::cout << "Paciente agregado como donante." << std::endl;
+	}
+	else if (dynamic_cast<cReceptor*>(paciente)) {
+		ListReceptores.push_back(dynamic_cast<cReceptor*>(paciente));
+		std::cout << "Paciente agregado como receptor." << std::endl;
+	}
+	else {
+		std::cout << "Tipo de paciente desconocido." << std::endl;
 	}
 }
+cCentroSalud& cCentroSalud::operator+(cPaciente* paciente) {
+	if (dynamic_cast<cDonante*>(paciente)) {
+		ListDonantes.push_back(dynamic_cast<cDonante*>(paciente));
+		std::cout << "Paciente agregado como donante." << std::endl;
+	}
+	else if (dynamic_cast<cReceptor*>(paciente)) {
+		ListReceptores.push_back(dynamic_cast<cReceptor*>(paciente));
+		std::cout << "Paciente agregado como receptor." << std::endl;
+	}
+	else {
+		std::cout << "Tipo de paciente desconocido." << std::endl;
+	}
+	return *this;
+}
 
-//NO me dejan claro estas funciones
-
+cCentroSalud& cCentroSalud::operator-(cPaciente* paciente) {
+	if (dynamic_cast<cDonante*>(paciente)) {
+		auto it = std::find(ListDonantes.begin(), ListDonantes.end(), dynamic_cast<cDonante*>(paciente));
+		if (it != ListDonantes.end()) {
+			ListDonantes.erase(it);
+			std::cout << "Paciente eliminado de la lista de donantes." << std::endl;
+		}
+		else {
+			std::cout << "El paciente no está en la lista de donantes." << std::endl;
+		}
+	}
+	else if (dynamic_cast<cReceptor*>(paciente)) {
+		auto it = std::find(ListReceptores.begin(), ListReceptores.end(), dynamic_cast<cReceptor*>(paciente));
+		if (it != ListReceptores.end()) {
+			ListReceptores.erase(it);
+			std::cout << "Paciente eliminado de la lista de receptores." << std::endl;
+		}
+		else {
+			std::cout << "El paciente no está en la lista de receptores." << std::endl;
+		}
+	}
+	else {
+		std::cout << "Tipo de paciente desconocido." << std::endl;
+	}
+	return *this;
+}
 bool cCentroSalud::buscarReceptor(cReceptor* ListReceptores, string nombre, cReceptor* receptorNuevo) {
 	vector<cReceptor*>::iterator pac = this->ListReceptores.begin(); //no le gusta
 	int cont = 0;

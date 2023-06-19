@@ -3,6 +3,7 @@
 #include <iostream>
 #include <ctime>
 #include <string>
+#include "cPaciente.h"
 using namespace std;
 
 class cFechas
@@ -15,7 +16,7 @@ public:
 	~cFechas();
 
 	tm getFecha1();
-	cFechas CompararFechas(cFechas fecha1, cFechas fecha2);
+	cFechas* CompararFechas(cReceptor* fecha1, cReceptor* fecha2);
 	static int HorasEntreFechas(cFechas* inicio, cFechas aux_fin);
 	void setHoy();
 	bool FechaCompleta();
