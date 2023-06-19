@@ -16,7 +16,6 @@ private:
 	string telefono;
 	std::vector <cReceptor*> ListReceptores;
 	std::vector <cDonante*> ListDonantes;
-	std::vector<cPaciente*>ListaPacientes; 
 	
 
 public:
@@ -31,14 +30,12 @@ public:
 
 	void AgregarReceptor(cReceptor* receptor);
 	void AgregarDonante(cDonante* donante);
-	bool buscarPaciente(cPaciente ListaPacientes, const int dni);
-	void eliminarPaciente(cPaciente* ListaPacientes, cPaciente* fuera); //no tendria que ser (cPaciente* fuera)???
+	bool buscarReceptor(cReceptor ListReceptores, const int dni, cReceptor* receptorNuevo);
+	bool buscarDonante(cDonante ListDonantes, const int dni, cDonante* donanteNuevo);
 	void imprimir();
 	void operator+(cReceptor* receptor);
 	void operator+(cDonante* donante);
 	void operator-(cDonante* fueraD);
 	void operator- (cReceptor * fueraR);
-	void eliminarDonante(cDonante* fueraD);
-	void eliminarReceptor(cReceptor* fueraR);
 };
 

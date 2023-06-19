@@ -29,32 +29,26 @@ void cCentroSalud::setTelefonoCS(string NuevoTelefono){
 	return;
 }
 
-
-void cCentroSalud::AgregarReceptor(cReceptor* receptor) {
-	this->ListReceptores.push_back(receptor); //creo q me marca porque no puse la libreria pero no m acuerdo :p
+void cCentroSalud::operator+(cDonante* donanteN) {
+	this->ListDonantes.push_back(donanteN);
 }
-void cCentroSalud::operator+(cDonante* donante) {
-	this->ListDonantes.push_back(donante);
+void cCentroSalud::operator+(cReceptor* receptorN) {
+	this->ListReceptores.push_back(receptorN);
+}
+void cCentroSalud::operator-(cDonante* fueraD) {
+	this->ListDonantes.erase(fueraD);
+}
+void cCentroSalud::operator-(cReceptor* fueraR) {
+	this->ListDonantes.erase(fueraR);
 }
 
-void cCentroSalud::AgregarDonante(cDonante* donante) {
-	this -> ListDonantes.push_back(donante);
-}
 
-/*void cCentroSalud::ingresarPaciente(cPaciente* nuevo) {
-	if (tipoPaciente == "receptor") {
-		AgregarReceptor();
-	}
-	else
-		AgregarDonante();
-}*/
-	
 
-bool cCentroSalud::buscarPaciente(cPaciente ListaPacientes,const int dni) {
-	vector<cPaciente>::iterator pac = this->ListaPacientes.begin(); //no le gusta
+bool cCentroSalud::buscarDonante(cDonante ListDonantes,const int dni, cDonante* donanteNuevo) {
+	vector<cPaciente>::iterator pac = this->ListDonantes.begin(); //no le gusta
 	int cont = 0;
-	while (pac != this->ListaPacientes.end()) {
-		if (pac->getDniP() == dni) {
+	while (pac != this->ListDonantes.end()) {
+		if (pac->getDniP() == dni) { //a chequear
 			return true;
 		}
 		cont++;
@@ -63,18 +57,24 @@ bool cCentroSalud::buscarPaciente(cPaciente ListaPacientes,const int dni) {
 
 	//ingresarPaciente();
 	return false;
+	this->ListDonantes + donanteNuevo; //esto no se si tiene q ir en el main
+
+}
+bool cCentroSalud::buscarReceptor(cReceptor ListReceptores, const int dni, cReceptor* receptorNuevo) {
+	vector<cPaciente>::iterator pac = this->ListDonantes.begin(); //no le gusta
+	int cont = 0;
+	while (pac != this->ListDonantes.end()) {
+		if (pac->getDniP() == dni) {
+			return true;
+		}
+		cont++;
+		pac++; //no me acuerdo bien como habiamos hecho en el tp anterior en las partes q estan en rojo
+	}// era asi creo
+
+	return false;
+	this->ListReceptores + receptorNuevo; //esto no se si tiene q ir en el main
+
 }
 
-void cCentroSalud::operator-(cDonante* fueraD) {
-	this->ListDonantes.erase(fueraD);
-}
-void cCentroSalud::operator-(cReceptor* fueraR) {
-	this->ListDonantes.erase(fueraR);
-}
-void cCentroSalud::eliminarDonante(cDonante* fueraD) {
-	this->ListDonantes.erase(fueraD);
-}
-void cCentroSalud::eliminarReceptor(cReceptor* fueraR) {
-	this->ListDonantes.erase(fueraD);
-}
+
 void imprimir() {}

@@ -5,16 +5,17 @@
 class cBSA
 {
 private:
+	std::vector<cPaciente*>ListMatch;
+	std::vector<cCentroSalud*>ListCentros;
 	std::vector <cReceptor*> ListReceptores;
 	std::vector <cDonante*> ListDonantes;
-	std::vector<cPaciente*>ListMatch;
 
 public:
 	cBSA();
 	~cBSA();
 
-	bool match();
-	void agregarMatch();
+	cReceptor match(cDonante* d, cReceptor* receptorFeliz);
+	void operator+(cPaciente* nuevoMatch);
 	cReceptor compararDonantes();
 	int contadorBSA(int contador, int prioridad);
 	bool coincidirFluido();

@@ -163,6 +163,7 @@
     <ClCompile Include="cReceptor.cpp" />
     <ClCompile Include="cRegistro.cpp" />
     <ClCompile Include="cSangre.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
