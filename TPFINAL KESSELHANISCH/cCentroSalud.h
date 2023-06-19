@@ -4,6 +4,7 @@
 #include "cReceptor.h"
 #include "cDonante.h"
 #include "cPaciente.h"
+#include <iostream>
 using namespace std;
 class cCentroSalud
 {
@@ -15,7 +16,7 @@ private:
 	string telefono;
 	std::vector <cReceptor*> ListReceptores;
 	std::vector <cDonante*> ListDonantes;
-	std::vector<cPaciente*>ListaPacientes; //ListReceptores + ListDonantes, no se si se puede
+	std::vector<cPaciente*>ListaPacientes; 
 	
 
 public:
@@ -30,11 +31,14 @@ public:
 
 	void AgregarReceptor(cReceptor* receptor);
 	void AgregarDonante(cDonante* donante);
-	bool buscarPaciente(cPaciente* ListaPacientes, const int dni);
+	bool buscarPaciente(cPaciente ListaPacientes, const int dni);
 	void eliminarPaciente(cPaciente* ListaPacientes, cPaciente* fuera); //no tendria que ser (cPaciente* fuera)???
 	void imprimir();
-	void operator+(cReceptor& receptor);
-	void operator+(cDonante& donante);
-	void operator-(cPaciente& fuera)
+	void operator+(cReceptor* receptor);
+	void operator+(cDonante* donante);
+	void operator-(cDonante* fueraD);
+	void operator- (cReceptor * fueraR);
+	void eliminarDonante(cDonante* fueraD);
+	void eliminarReceptor(cReceptor* fueraR);
 };
 

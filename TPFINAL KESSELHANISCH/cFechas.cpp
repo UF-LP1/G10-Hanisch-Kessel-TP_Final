@@ -73,3 +73,5 @@ string cFechas::to_stringFecha() const {
 void cFechas::imprimir() const {
 	cout << to_stringFecha() << endl;
 }
+
+tm cFechas::getFecha1(){}

@@ -1,4 +1,5 @@
 #include "cCentroSalud.h"
+#include <iostream>
 using namespace std;
 
 cCentroSalud::cCentroSalud(string nombreC_, string direccion_, string partido_, string provincia_, string telefono_){
@@ -32,9 +33,10 @@ void cCentroSalud::setTelefonoCS(string NuevoTelefono){
 void cCentroSalud::AgregarReceptor(cReceptor* receptor) {
 	this->ListReceptores.push_back(receptor); //creo q me marca porque no puse la libreria pero no m acuerdo :p
 }
-void cCentroSalud::operator+(cDonante &donante) {
-	this->push_back(donante) //te parece bien esto?? No se si hay que declarar tanto o usar punteros cDonante* donanteNuevo
-}// la verdad ni ideaaaaaaaaaa 
+void cCentroSalud::operator+(cDonante* donante) {
+	this->ListDonantes.push_back(donante);
+}
+
 void cCentroSalud::AgregarDonante(cDonante* donante) {
 	this -> ListDonantes.push_back(donante);
 }
@@ -49,9 +51,9 @@ void cCentroSalud::AgregarDonante(cDonante* donante) {
 	
 
 bool cCentroSalud::buscarPaciente(cPaciente ListaPacientes,const int dni) {
-	vector<cPaciente>::iterator pac = ListaPacientes.begin(); //no le gusta
+	vector<cPaciente>::iterator pac = this->ListaPacientes.begin(); //no le gusta
 	int cont = 0;
-	while (pac != ListaPacientes.end()) {
+	while (pac != this->ListaPacientes.end()) {
 		if (pac->getDniP() == dni) {
 			return true;
 		}
@@ -63,10 +65,16 @@ bool cCentroSalud::buscarPaciente(cPaciente ListaPacientes,const int dni) {
 	return false;
 }
 
-void cCentroSalud::operator-(cPaciente& fuera) {
-	this->erase(fuera);
+void cCentroSalud::operator-(cDonante* fueraD) {
+	this->ListDonantes.erase(fueraD);
 }
-void cCentroSalud::eliminarPaciente(cPaciente* ListaPacientes ,cPaciente* fuera) {
-	this->ListaPacientes.erase(fuera);// este nose pq no anda, capaz vector no tiene erase
+void cCentroSalud::operator-(cReceptor* fueraR) {
+	this->ListDonantes.erase(fueraR);
+}
+void cCentroSalud::eliminarDonante(cDonante* fueraD) {
+	this->ListDonantes.erase(fueraD);
+}
+void cCentroSalud::eliminarReceptor(cReceptor* fueraR) {
+	this->ListDonantes.erase(fueraD);
 }
 void imprimir() {}

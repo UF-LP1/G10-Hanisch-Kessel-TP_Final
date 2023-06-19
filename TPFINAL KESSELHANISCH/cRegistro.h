@@ -3,7 +3,7 @@
 class cRegistro
 {
 private:
-	std::vector<cPaciente*>ListPacientes; //??
+	
 public:
 	cRegistro();
 	~cRegistro();

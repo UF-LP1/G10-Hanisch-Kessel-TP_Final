@@ -6,21 +6,21 @@ private:
 	string FReceptor;
 	string fechaLista;
 	int prioridad;
-	string estado;
+	int estado; // 1= recibio, 2=estable, 3=inestable (de mejor a peor)
 	float cantF;
 
 public: 
-	cReceptor(string FReceptor_, string fechaLista_, int prioridad_, string estado_, float cantF_);
+	cReceptor(string FReceptor_, string fechaLista_, int prioridad_, int estado_, float cantF_);
 	~cReceptor();
 
 	string getFReceptorP();
 	string getFechaListaP();
 	int getPrioridadP();
-	string getEstadoP();
+	int getEstadoP();
 	float getCantFP();
 
 	void setPrioridadP(int NuevaPrioridad);
-	void setEstadoP(string NuevoEstado);
+	void setEstadoP(int NuevoEstado);
 
 	void imprimir();
 };

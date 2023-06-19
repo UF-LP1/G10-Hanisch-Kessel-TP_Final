@@ -37,7 +37,7 @@ void cDonante::setPesoPacienteAct(float pesoP_) {
 	this->pesoP = pesoP_;
 }
 bool puedeDonar(bool sinTattos_,bool sinEnfermedades_, float pesoP_){
-	int edad = 12; // aca haria una diferencia entre el dia de hoy y la fecha de nacimiento, lo veo dsp tengo sueño
+	int edad = ; // aca haria una diferencia entre el dia de hoy y la fecha de nacimiento, lo veo dsp tengo sueño
 	if (sinTattos_ == true && sinEnfermedades_ == true && edad >= 18 && edad <= 65 && pesoP_ >= 50) {
 		return true;
 	}

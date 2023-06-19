@@ -1,6 +1,6 @@
 #include "cReceptor.h"
 
-cReceptor::cReceptor (string FReceptor_, string fechaLista_, int prioridad_, string estado_, float cantF_){
+cReceptor::cReceptor (string FReceptor_, string fechaLista_, int prioridad_, int estado_, float cantF_){
 	this->FReceptor = FReceptor_;
 	this->fechaLista = fechaLista_;
 	this->prioridad = prioridad_;
@@ -18,7 +18,7 @@ string cReceptor::getFechaListaP() {
 int cReceptor::getPrioridadP() {
 	return this->prioridad;
 }
-string cReceptor::getEstadoP() {
+int cReceptor::getEstadoP() {
 	return this->estado;
 }
 float cReceptor::getCantFP() {
@@ -29,7 +29,7 @@ void cReceptor::setPrioridadP(int NuevaPrioridad) {
 	prioridad = NuevaPrioridad; 
 	return;
 }
-void cReceptor::setEstadoP(string NuevoEstado) {
+void cReceptor::setEstadoP(int NuevoEstado) {
 	estado = NuevoEstado;
 	return;
 }
