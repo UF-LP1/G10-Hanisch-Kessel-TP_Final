@@ -1,7 +1,7 @@
 #include "cCentroSalud.h"
 #include <iostream>
 using namespace std;
-//No pude arreglar nada
+
 cCentroSalud::cCentroSalud(string nombreC_, string direccion_, string partido_, string provincia_, string telefono_){
 	this->nombreC = nombreC_;
 	this->direccion = direccion_;

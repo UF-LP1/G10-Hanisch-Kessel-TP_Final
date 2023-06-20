@@ -1,22 +1,34 @@
 #include "cBSA.h"
 #include "cCentroSalud.h"
 
-
 cBSA::cBSA(){}
 cBSA::~cBSA(){}
 
- cReceptor* cBSA::match(cDonante* don) {
-	ePrioridad priority = ePrioridad::Urgente;
+cReceptor* cBSA::match(cDonante* donantee) {
+	int prioridad = 1;
+	cReceptor* ElijoUno;
 	cReceptor* winner;
-	
-	for (int i= 0; i < ListReceptores.size(); i++) {
-		if (priority < ePrioridad::Muy_baja && coincidirFluido(don, ListReceptores[i])==true) { //no se bien como pasarle esa lista
-			winner=contadorBSA(priority,don,ListReceptores[i]);
+	int cont = 0;
+
+	do {
+		for (int i = 0; i < ListReceptores.size(); i++) {
+			if (coincidirFluido(donantee, ListReceptores[i]) == true) {
+				cont = contadorBSA(prioridad, donantee, ListReceptores[i]);
+				if (cont == 1)
+					ElijoUno = ListReceptores[i];
+				else if (cont > 1) {
+					ElijoUno = compararDonantes(ElijoUno, ListReceptores[i]);
+				}
+			}
 		}
-			
-	}
-	
-	return 
+		if (cont == 0)
+			prioridad++;
+	} while (cont == 0 && prioridad < 6);
+
+	if (cont == 0)
+		return NULL; //recorrio 5 veces el for cambiando la prioridad y aun asi no hizo match. retorno null. 
+	else
+		return ElijoUno;
 }
 
 void cBSA::operator+(cPaciente* nuevoMatch) {
@@ -58,25 +70,13 @@ bool cBSA::coincidirFluido(cDonante* dona, cReceptor* rece) {
 	return false;
 } 
 
-cReceptor* cBSA::contadorBSA(ePrioridad prioridad, cDonante* don, cReceptor* rec) {
-	cReceptor* comparar1;
-	cReceptor* comparar2;
-	cReceptor* elijoUno;
+int cBSA::contadorBSA(int priority, cDonante* don, cReceptor* rec) {
 	int contador = 0;
-	if (rec->GetPrioridadReceptor() == prioridad && rec->getProvincia() == don->getProvinciaDonante()) {
+	if (rec->GetPrioridadReceptor() == priority && rec->getProvincia() == don->getProvinciaDonante()) {
 		contador++;
-
-		if (contador > 1) {
-			elijoUno = compararDonantes(comparar1, comparar2);
-			 comparar1= elijoUno;
-		}
-		else if (contador == 1)
-			rec = comparar1;     //esto esta casi listo, falta igualar comparar1 con el primer receptor que entro e igualar comparar2 con el segundo que entro que no se bien como plantearlo
-	}
-	return elijoUno; 
+	}   
+	return contador; 
 }
-
-
 
 cReceptor* cBSA::compararDonantes(cReceptor* uno, cReceptor* dos) {
 	cReceptor* ganador;
@@ -86,7 +86,7 @@ cReceptor* cBSA::compararDonantes(cReceptor* uno, cReceptor* dos) {
 	else if (uno->getEstado() < dos->getEstado()) 
 		ganador = uno;
 	else
-		fecha = fecha->CompararFechas( uno, dos); //no le gusto no se por que
+		fecha = fecha->CompararFechas( uno, dos); 
 	if (fecha == uno->GetFechaListaEspera()) {
 		ganador = uno;
 	}
