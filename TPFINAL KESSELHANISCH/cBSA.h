@@ -15,7 +15,7 @@ public:
 	cBSA();
 	~cBSA();
 
-	cReceptor* match(cDonante* donantee);
+	cReceptor* match(cDonante* donantee, std::vector <cReceptor*> ListReceptores, vector <cDonante*> ListDonantes);
 	void operator+(cPaciente* nuevoMatch);
 	bool coincidirFluido(cDonante* dona, cReceptor* rece);
 	int contadorBSA(int priority, cDonante* don, cReceptor* rec);

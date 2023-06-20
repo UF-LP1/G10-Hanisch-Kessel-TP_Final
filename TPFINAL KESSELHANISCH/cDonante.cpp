@@ -15,6 +15,10 @@ cFechas* cDonante::getFechaExtraccionP()
 {
 	return fechaExtraccion;
 }
+cFechas* cDonante::getFechaNacimiento()
+{
+	return FechaNacimeinto;
+}
 
 string cDonante::getProvinciaDonante()
 {
@@ -54,7 +58,7 @@ bool puedeDonar(bool sinTattos_,bool sinEnfermedades_, float pesoP_, cFechas* fN
 	int edad;
 	cFechas diferenciaDias, fechaDeHoy;
 	fechaDeHoy.setHoy();
-	edad = diferenciaDias.HorasEntreFechas(&fNac, fechaDeHoy); 
+	edad = diferenciaDias.HorasEntreFechas(fNac, fechaDeHoy); 
 	if (sinTattos_ == true && sinEnfermedades_ == true && edad >= 157680 && edad <= 569400 && pesoP_ >= 50) {
 		return true;
 	}

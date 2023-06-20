@@ -1,48 +1,7 @@
 #include"cReceptor.h"
-cReceptor::cReceptor() :cPaciente() {
-	this->PrioridadReceptor = ePrioridad::Muy_baja;
-	this->Estado = eEstadoReceptor::Estable;
-}
-
-cReceptor::cReceptor(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, eFluido Fluido, cCentroSalud* CentroDeSalud, int DiaListaEspera, int MesListaEspera, int AnioListaEspera, int HoraListaEspera, int MinutosListaEspera, ePrioridad Prioridad,  eEstadoReceptor Estado) :cPaciente(Nombre, NumeroTelefono, Sangre, DiaNacimiento, MesNacimiento, AnioNacimiento, HoraNacimiento, MinutosNacimiento,Fluido, CentroDeSalud) {
-	this->FechaListaEspera = new cFechas(DiaListaEspera, MesListaEspera, AnioListaEspera, HoraListaEspera, MinutosListaEspera);
-	this->PrioridadReceptor = Prioridad;
-	this->Estado = Estado;
-	
-}
 
 
-void cReceptor::SetEstado(eEstadoReceptor NuevoEstado) {
-	this->Estado = NuevoEstado;
-}
-
-cFechas* cReceptor::GetFechaListaEspera()
-{
-	return FechaListaEspera;
-}
-
-void cReceptor::SetPrioridad(ePrioridad NuevaPrioridad) {
-	this->PrioridadReceptor = NuevaPrioridad;
-}
-
-void cReceptor::SetFluidoReceptor(eFluido NuevoFluido)
-{
-	this->Fluido = NuevoFluido;
-}
-
-eFluido cReceptor::GetFluidoReceptor()
-{
-	return eFluido();
-}
-
-ePrioridad cReceptor::GetPrioridadReceptor() {
-	return PrioridadReceptor;
-}
-string cReceptor::getProvincia() {
-	return CentroDeSalud->getProvinciaCS();
-}
-
-string cReceptor::ToStringReceptor() const {
+string cRegistro::ToStringReceptor() const {
 	return ToStringPaciente() +
 		"\n Prioridad: " + PrioridadToString(PrioridadReceptor) +
 		"\n Fecha Lista de Espera: " + FechaListaEspera->to_stringFecha() +
@@ -50,12 +9,12 @@ string cReceptor::ToStringReceptor() const {
 		"\n Estado receptor : " + EstadoReceptorToString(Estado);
 }
 
-void cReceptor::imprimir() {
-	cout << ToStringReceptor() << endl;
+void cRegistro::imprimir() {
+	cout << ToStringRegistro() << endl;
 }
 
-ostream& operator<<(ostream& os, const cReceptor* receptor) {
-	os << receptor->ToStringReceptor();
+ostream& operator<<(ostream& os, const cRegistro* registro) {
+	os << registro->ToStringRegistro();
 	return os;
 }
 

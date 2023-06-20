@@ -75,7 +75,7 @@ cCentroSalud& cCentroSalud::operator-(cPaciente* paciente) {
 		}
 	}
 	else if (dynamic_cast<cReceptor*>(paciente)) {
-		auto it = std::find(ListReceptores.begin(), ListReceptores.end(), dynamic_cast<cReceptor*>(paciente));
+	    auto it = std::find(ListReceptores.begin(), ListReceptores.end(), dynamic_cast<cReceptor*>(paciente));
 		if (it != ListReceptores.end()) {
 			ListReceptores.erase(it);
 			std::cout << "Paciente eliminado de la lista de receptores." << std::endl;
@@ -99,9 +99,8 @@ bool cCentroSalud::buscarReceptor(cReceptor* ListReceptores, string nombre, cRec
 		cont++;
 		pac++; //no me acuerdo bien como habiamos hecho en el tp anterior en las partes q estan en rojo
 	}// era asi creo
-
+	this->ListReceptores.push_back(receptorNuevo);
 	return false;
-	this->ListReceptores.push_back(receptorNuevo); //esto no se si tiene q ir en el main
 
 }
 

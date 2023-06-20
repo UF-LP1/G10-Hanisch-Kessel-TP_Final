@@ -1,10 +1,11 @@
 #include "cBSA.h"
 #include "cCentroSalud.h"
 
-cBSA::cBSA(){}
+cBSA::cBSA(){
+}
 cBSA::~cBSA(){}
 
-cReceptor* cBSA::match(cDonante* donantee) {
+cReceptor* cBSA::match(cDonante* donantee, vector <cReceptor*> ListReceptores, vector <cDonante*> ListDonantes) {
 	int prioridad = 1;
 	cReceptor* ElijoUno;
 	cReceptor* winner;
@@ -18,6 +19,11 @@ cReceptor* cBSA::match(cDonante* donantee) {
 					ElijoUno = ListReceptores[i];
 				else if (cont > 1) {
 					ElijoUno = compararDonantes(ElijoUno, ListReceptores[i]);
+				}
+				else {
+					ListDonantes = ListDonantes - donantee;
+					ListReceptores = ListReceptores - ElijoUno;
+					return ElijoUno;
 				}
 			}
 		}

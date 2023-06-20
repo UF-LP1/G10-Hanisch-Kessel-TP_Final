@@ -19,6 +19,7 @@ public:
 
     
     cFechas* getFechaExtraccionP();
+    cFechas* getFechaNacimiento();
     string getProvinciaDonante();
     float getVolumenDP();
     bool getSinTatuajes();
