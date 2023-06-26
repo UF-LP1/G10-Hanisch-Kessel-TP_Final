@@ -1,4 +1,9 @@
 #pragma once
+#ifndef _CDONANTE_H
+#define _CDONANTE_H
+
+
+
 #include "cPaciente.h"
 #include "cFechas.h"
 using namespace std;
@@ -33,3 +38,5 @@ public:
     bool puedeDonar(bool sinTattos_, bool sinEnfermedades_, float pesoP_, cFechas* fNac);
     void imprimir();
 };
+
+#endif // !_CDONANTE_H

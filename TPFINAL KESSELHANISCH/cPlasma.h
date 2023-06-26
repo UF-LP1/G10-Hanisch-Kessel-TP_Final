@@ -1,4 +1,8 @@
 #pragma once
+#ifndef _CPLASMA_H
+#define _CPLASMA_H
+
+
 #include "cFluidos.h"
 class cPlasma : public cFluidos
 {
@@ -10,4 +14,4 @@ public:
 
 	bool verificarFechaMaxima(cFechas fechaExtraccion);
 };
-
+#endif // !_CPLASMA_H

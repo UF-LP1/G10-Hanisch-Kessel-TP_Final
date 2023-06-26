@@ -1,4 +1,8 @@
 #pragma once
+#ifndef _CSANGRE_H
+#define _CSANGRE_H
+
+
 #include "cFluidos.h"
 #include <string>
 using namespace std;
@@ -13,4 +17,4 @@ public:
 	string getTipoSangreP();
 	bool verificarFechaMaxima(cFechas fechaExtraccion);
 };
- 
+#endif // !_CSANGRE_H

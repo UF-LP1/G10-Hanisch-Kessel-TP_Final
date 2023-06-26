@@ -1,4 +1,8 @@
 #pragma once
+#ifndef _CCENTROSALUD_H
+#define _CCENTROSALUD_H
+
+
 #include <string>
 #include <vector>
 #include "cReceptor.h"
@@ -16,7 +20,7 @@ private:
 	string telefono;
 	std::vector <cReceptor*> ListReceptores;
 	std::vector <cDonante*> ListDonantes;
-	
+
 
 public:
 	cCentroSalud(string nombreC_, string direccion_, string partido_, string provincia_, string telefono);
@@ -34,5 +38,7 @@ public:
 	cCentroSalud& operator+(cPaciente* paciente);
 	bool buscarReceptor(cReceptor* ListReceptores, string nombre, cReceptor* receptorNuevo);
 	void imprimir();
-	
 
+};
+
+#endif // !_CCENTROSALUD_H

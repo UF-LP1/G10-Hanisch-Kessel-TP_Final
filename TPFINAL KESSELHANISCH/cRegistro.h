@@ -1,4 +1,8 @@
 #pragma once
+#ifndef _CREGISTRO_
+#define _CREGISTRO_
+
+
 #include "cPaciente.h"
 class cRegistro
 {
@@ -9,3 +13,4 @@ public:
 	~cRegistro();
 };
 
+#endif // !_CREGISTRO_

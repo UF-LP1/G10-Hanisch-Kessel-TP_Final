@@ -1,4 +1,8 @@
 #pragma once
+#ifndef _CPACIENTE_H
+#define _CPACIENTE_H
+
+
 #include <string>
 #include "cFechas.h"
 #include "Enums.h"
@@ -27,3 +31,5 @@ public:
 	bool operator==(const cPaciente& OtroPaciente);
 	virtual void imprimir() = 0;
 };
+
+#endif // !_CPACIENTE_H

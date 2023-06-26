@@ -1,4 +1,8 @@
 #pragma once
+#ifndef _CBSA_H 
+#define _CBSA_H
+
+
 #include <vector>
 #include "cCentroSalud.h"
 #include "cFechas.h"
@@ -24,3 +28,5 @@ public:
 	quiero que ambos pacientes sean eliminados de sus respectivas listas
 	*/
 };
+
+#endif // !_CBSA_H 

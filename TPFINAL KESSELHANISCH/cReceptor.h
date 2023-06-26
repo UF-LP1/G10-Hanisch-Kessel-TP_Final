@@ -1,4 +1,8 @@
 #pragma once
+#ifndef _CRECEPTOR_H
+#define _CRECEPTOR_H
+
+
 #include "cPaciente.h"
 using namespace std;
 class cReceptor : public cPaciente {
@@ -26,3 +30,5 @@ public:
 	void imprimir();
 	friend ostream& operator<<(ostream& os, const cReceptor* receptor);
 };
+
+#endif // !_CRECEPTOR_H

@@ -1,4 +1,8 @@
 #pragma once
+#ifndef _ENUMS_H
+#define _ENUMS_H
+
+
 #include <string>
 #include <iostream>
 using namespace std;
@@ -15,3 +19,5 @@ string SexoToString(eSexo sexo);
 string TipoDeSangreToString(eTipoDeSangre sangre);
 string EstadoReceptorToString(eEstadoReceptor estadoreceptor);
 string FluidoToString(eFluido fluido);
+
+#endif // !_ENUMS_H

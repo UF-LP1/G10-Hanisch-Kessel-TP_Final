@@ -1,4 +1,8 @@
-#pragma 
+#pragma once
+#ifndef _CFECHAS_H
+#define _CFECHAS_H
+
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <ctime>
@@ -29,3 +33,5 @@ public:
 	string to_stringFecha() const;
 	void imprimir() const;
 };
+
+#endif // !_CFECHAS_H
