@@ -78,7 +78,7 @@ int main() {
 
 
 	for (int i = 1; i < 3; i++) {
-		if (BSA->match(donante1[i]) == NULL) {
+		if (BSA->match(donante1) == NULL) {
 			cout << "no hubo match" << endl;
 		}
 		else
