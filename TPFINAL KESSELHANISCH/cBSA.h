@@ -6,6 +6,7 @@
 #include <vector>
 #include "cCentroSalud.h"
 #include "cFechas.h"
+#include "cFluidos.h"
 
 class cBSA
 {

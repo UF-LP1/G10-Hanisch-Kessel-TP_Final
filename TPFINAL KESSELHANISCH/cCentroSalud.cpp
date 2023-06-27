@@ -34,7 +34,7 @@ void cCentroSalud::setTelefonoCS(string NuevoTelefono){
 
 
 
-// ingresamos los pacientes y vemos su son donantes o recep
+// ingresamos los pacientes y vemos si son donantes o recep
 void cCentroSalud::IngresarPaciente(cPaciente*paciente) {
 	if (dynamic_cast<cDonante*>(paciente)) {
 		ListDonantes.push_back(dynamic_cast<cDonante*>(paciente));

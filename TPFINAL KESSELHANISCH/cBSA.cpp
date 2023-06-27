@@ -5,11 +5,14 @@ cBSA::cBSA(){
 }
 cBSA::~cBSA(){}
 
+
+
 cReceptor* cBSA::match(cDonante* donantee, vector <cReceptor*> ListReceptores, vector <cDonante*> ListDonantes) {
 	int prioridad = 1;
 	cReceptor* ElijoUno;
 	cReceptor* winner;
 	int cont = 0;
+	cFechas diadedonacion;
 
 	do {
 		for (int i = 0; i < ListReceptores.size(); i++) {
@@ -23,7 +26,7 @@ cReceptor* cBSA::match(cDonante* donantee, vector <cReceptor*> ListReceptores, v
 				else {
 					 ListDonantes[i] - donantee;
 					 ListReceptores [i] - ElijoUno;
-					return ElijoUno;
+					return ElijoUno; //esto creo que va mas abajo
 				}
 			}
 		}
@@ -32,10 +35,28 @@ cReceptor* cBSA::match(cDonante* donantee, vector <cReceptor*> ListReceptores, v
 	} while (cont == 0 && prioridad < 6);
 
 	if (cont == 0)
-		return NULL; //recorrio 5 veces el for cambiando la prioridad y aun asi no hizo match. retorno null. 
-	else
+		return NULL; //recorrio 5 veces el for cambiando la prioridad y aun asi no hizo match. retorno null.
+	else if ((verificarFechaMaxima() == true)) {
+		ListDonantes - donantee;
+		ListReceptores - ElijoUno;
+		diadedonacion = setHoy();
 		return ElijoUno;
+
+	}
+	else {
+		return NULL;
+		ListDonantes - donantee;
+	} //hubo match pero el fluido estaba vencido, no se puede efectuar la donacion 
+
 }
+
+
+	/*en esta funcion ya hubo match asi que yo llamo para que me pase el receptor.
+	Me fijo que tipo de fluido es el donante y llamo a verificarfechamaxima para verificar que el fluido no este vencido.
+	Si no esta vencido, entonces se efectua la donacion. Aca elimino al donante y al receptor de sus listas
+	
+	deberia pasarle a cRegistro el donante y receptor
+	*/
 
 void cBSA::operator+(cPaciente* nuevoMatch) {
 	this->ListMatch.push_back(nuevoMatch);

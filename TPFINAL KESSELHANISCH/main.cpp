@@ -77,17 +77,12 @@ int main() {
 	std::cout << "\n";
 
 
-	for (int i = 1; i < 3; i++) {
-		if (BSA->match(donante1) == NULL) {
-			cout << "no hubo match" << endl;
-		}
-		else
-			if (verificarFechaMaxima() == true)
-				cout << "efectuar donacion" << endl;
-			else
-				cout << "se vencio el fluido" << endl;
-	}
-	return 0;
+/*ver los cpp de:
+cBSA
+cRegistro
+cReceptor
+*/
+	return 0; 
 }
 
 

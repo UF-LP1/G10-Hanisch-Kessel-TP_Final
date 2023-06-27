@@ -1,5 +1,12 @@
 #include"cReceptor.h"
 
+//aca quiero que haga un registro de la cantidad de donaciones que hubo el mes, muestre el donante, receptor, hospital, fecha de donacion
+//tambien quiero mostrar los donantes y receptores que estan en lista de espera
+
+/*en match ya tengo el dia que dono, el donante y el receptor. Podrua sacar el hospital tmb*/
+string cRegistro::ToStringDonacionesMes() {
+
+}
 
 string cRegistro::ToStringReceptor() const {
 	return ToStringPaciente() +
