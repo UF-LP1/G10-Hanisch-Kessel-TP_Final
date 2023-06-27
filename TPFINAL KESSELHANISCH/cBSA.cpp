@@ -21,7 +21,7 @@ cReceptor* cBSA::match(cDonante* donantee, vector <cReceptor*> ListReceptores, v
 					ElijoUno = compararDonantes(ElijoUno, ListReceptores[i]);
 				}
 				else {
-					 this->listC - donantee;
+					 ListDonantes[i] - donantee;
 					 ListReceptores [i] - ElijoUno;
 					return ElijoUno;
 				}
