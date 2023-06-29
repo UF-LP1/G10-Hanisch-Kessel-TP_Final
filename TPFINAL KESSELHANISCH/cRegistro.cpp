@@ -7,7 +7,7 @@
 string cRegistro::ToStringDonacionesMes() {
 
 }
-
+hola
 string cRegistro::ToStringReceptor() const {
 	return ToStringPaciente() +
 		"\n Prioridad: " + PrioridadToString(PrioridadReceptor) +
