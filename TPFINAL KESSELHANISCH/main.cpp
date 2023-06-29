@@ -25,27 +25,42 @@ int main() {
 	vector<cCentroSalud*> ListCentros;
 	vector<cDonante*> ListDonantes;
 	vector<cReceptor*> ListReceptores;
+
+	string rta;
 	cout << "Bienvenidos al banco de Sangre Argentino" << endl;
-	try {
-		
-		if (donante3->puedeDonar(donante3->getSinTatuajes(), donante3->getSinEnfermedadSagre(), donante3->getPesoPacienteAct(), donante3->getFechaNacimiento()) == true) {
+	cout << "desea donar sangre? SI/NO" << endl; //en caso de que no es porque quiere recibir sangre
+	cin >> rta;
+
+	if (rta == "SI" || rta == "si" || rta == "Si") {
+		try {
+
+			if (donante3->puedeDonar(donante3->getSinTatuajes(), donante3->getSinEnfermedadSagre(), donante3->getPesoPacienteAct(), donante3->getFechaNacimiento()) == true) {
 				centro1->IngresarPaciente(donante3);
+				//llamo a matchDonante
+				/*
+				if(matchDonante==NULL{
+				
+				cout<<no se encontro un receptor, la donacion sera guardada en el banco<<endl;
+				(lo mismo para el resto)*/ 
+			}
+			else if (donante1->puedeDonar(donante1->getSinTatuajes(), donante1->getSinEnfermedadSagre(), donante1->getPesoPacienteAct(), donante1->getFechaNacimiento()) == true) {
+				centro2->IngresarPaciente(donante1);
+				//llamo a matchDonante
+			}
+			else if (donante2->puedeDonar(donante2->getSinTatuajes(), donante2->getSinEnfermedadSagre(), donante2->getPesoPacienteAct(), donante2->getFechaNacimiento()) == true) {
+				centro3->IngresarPaciente(donante2);
+				//llamo a matchDonante
+			}
+			else {
+				cout << "El Paciente no puede donar" << endl;
+			}
+			centro1->IngresarPaciente(receptor1);
+			centro2->IngresarPaciente(receptor2);
+			centro3->IngresarPaciente(receptor3);
 		}
-		else if (donante1->puedeDonar(donante1->getSinTatuajes(), donante1->getSinEnfermedadSagre(), donante1->getPesoPacienteAct(), donante1->getFechaNacimiento()) == true) {
-			centro2->IngresarPaciente(donante1);
+		catch (exception& e) {
+			std::cout << e.what() << endl;
 		}
-		else if (donante2->puedeDonar(donante2->getSinTatuajes(), donante2->getSinEnfermedadSagre(), donante2->getPesoPacienteAct(), donante2->getFechaNacimiento()) == true) {
-			centro3->IngresarPaciente(donante2);
-		}
-		else {
-			cout << "El Paciente no puede donar" << endl;
-		}
-		centro1->IngresarPaciente(receptor1);
-		centro2->IngresarPaciente(receptor2);
-		centro3->IngresarPaciente(receptor3);
-	}
-	catch (exception& e) {
-		std::cout << e.what() << endl;
 	}
 	try {
 
@@ -57,31 +72,42 @@ int main() {
 	catch (exception& e) {
 		std::cout << e.what() << endl;
 	}
-	std::cout << "Lista de Donantes:\n";
+
+	if (rta == "NO" || rta == "no" || rta == "No") {
+		centro1->IngresarPaciente(receptor1);
+		centro2->IngresarPaciente(receptor2);
+		centro3->IngresarPaciente(receptor3);
+		// aca llamo a matchReceptor para cada receptor
+		/*
+		if(matchReceptor==NULL{
+		  cout<<no se encontro un donante, ingresa a la lista de espera<<endl;
+		}
+		else
+		(no se si es necesario un else)
+		
+		*/
+	}
+
+
+	cout << "Lista de Donantes:\n";
 	for (int i = 0; i < ListDonantes.size(); i++) {
-		std::cout << ListDonantes[i]->GetNombre() << " || " << "Fecha Extraccion: " << ListDonantes[i]->getFechaExtraccionP()<< "|| " << ListDonantes[i]->GetFluido()<<"||"<< ListDonantes[i]->GetCentroDeSalud()<<"||"<<  endl;
+		cout << ListDonantes[i]->GetNombre() << " || " << "Fecha Extraccion: " << ListDonantes[i]->getFechaExtraccionP()<< "|| " << ListDonantes[i]->GetFluido()<<"||"<< ListDonantes[i]->GetCentroDeSalud()<<"||"<<  endl;
 	}
-	std::cout << std::endl;
-	std::cout << "\n";
-	std::cout << "Lista de Receptores:\n";
+	cout << std::endl;
+	cout << "\n";
+	cout << "Lista de Receptores:\n";
 	for (int i = 0; i < ListReceptores.size(); i++) {
-		std::cout << ListReceptores[i]->GetNombre() << " || " << "Fecha Lista ESpera: " << ListReceptores[i]->GetFechaListaEspera() << "|| " << ListReceptores[i]->GetFluidoReceptor() << "||" << ListReceptores[i]->GetCentroDeSalud() << "||" << endl;
+		cout << ListReceptores[i]->GetNombre() << " || " << "Fecha Lista ESpera: " << ListReceptores[i]->GetFechaListaEspera() << "|| " << ListReceptores[i]->GetFluidoReceptor() << "||" << ListReceptores[i]->GetCentroDeSalud() << "||" << endl;
 	}
-	std::cout << std::endl;
-	std::cout << "\n";
-	std::cout << "Lista de Centros de salud:\n";
+	cout << std::endl;
+	cout << "\n";
+	cout << "Lista de Centros de salud:\n";
 	for (int i = 0; i < ListCentros.size(); i++) {
-		std::cout << ListCentros[i]->getNombreCS() << " || " << "Telefono: " << ListCentros[i]->getTelefonoCS() << "|| " << ListCentros[i]->getPartidoCS() << "||" << ListCentros[i]->getProvinciaCS() << "||" << endl;
+		cout << ListCentros[i]->getNombreCS() << " || " << "Telefono: " << ListCentros[i]->getTelefonoCS() << "|| " << ListCentros[i]->getPartidoCS() << "||" << ListCentros[i]->getProvinciaCS() << "||" << endl;
 	}
-	std::cout << std::endl;
-	std::cout << "\n";
+	cout << std::endl;
+	cout << "\n";
 
-
-/*ver los cpp de:
-cBSA
-cRegistro
-cReceptor
-*/
 	return 0; 
 }
 
