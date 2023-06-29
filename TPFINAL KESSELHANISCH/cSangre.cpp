@@ -1,7 +1,8 @@
 #include "cSangre.h"
 
-cSangre::cSangre(string tipoSangre_){
+cSangre::cSangre(string tipoSangre_,const int tiempoMaximoS_) {
 	this->tipoSangre = tipoSangre_;
+	this->tiempoMaximoS = tiempoMaximoS_;
 }
 cSangre::~cSangre(){}
 

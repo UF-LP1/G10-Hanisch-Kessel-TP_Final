@@ -30,7 +30,7 @@ void cReceptor::setPrioridadP(int NuevaPrioridad) {
 	return;
 }
 void cReceptor::setEstadoP(int NuevoEstado) {
-	estado = NuevoEstado;
+	this->estado = NuevoEstado;
 	return;
 }
 

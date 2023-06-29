@@ -11,7 +11,7 @@ private:
 	string tipoSangre;
 	const int tiempoMaximoS;
 public:
-	cSangre(string tipoSangre_);
+	cSangre(string tipoSangre_, const int tiempoMaximoS_);
 	~cSangre();
 
 	string getTipoSangreP();

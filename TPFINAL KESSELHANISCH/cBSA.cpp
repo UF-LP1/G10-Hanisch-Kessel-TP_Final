@@ -38,14 +38,14 @@ cReceptor* cBSA::match(cDonante* donantee, vector <cReceptor*> ListReceptores, v
 		return NULL; //recorrio 5 veces el for cambiando la prioridad y aun asi no hizo match. retorno null.
 	else if ((verificarFechaMaxima() == true)) {
 		ListDonantes - donantee;
-		ListReceptores - ElijoUno;
+		ListReceptores [i] - ElijoUno;
 		diadedonacion = setHoy();
 		return ElijoUno;
 
 	}
 	else {
 		return NULL;
-		ListDonantes - donantee;
+		ListDonantes[i] - donantee;
 	} //hubo match pero el fluido estaba vencido, no se puede efectuar la donacion 
 
 }
