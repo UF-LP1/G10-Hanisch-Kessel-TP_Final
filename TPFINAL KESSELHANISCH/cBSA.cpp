@@ -13,6 +13,10 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 	cReceptor* winner;
 	int cont = 0;
 	tm diadedonacion;
+	cFluidos fluido;
+	cFechas fechahoy;
+
+	fluido = donantee->GetFluido();
 
 	do {
 		for (int i = 0; i < ListReceptores.size(); i++) {
@@ -21,34 +25,30 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 				if (cont == 1)
 					ElijoUno = ListReceptores[i];
 				else if (cont > 1) {
-					ElijoUno = compararDonantes(ElijoUno, ListReceptores[i]);
+					ElijoUno = compararReceptores(ElijoUno, ListReceptores[i]);
 			}
 		}
 		if (cont == 0)
 			prioridad++;
 	} while (cont == 0 && prioridad < 6);
 
-	if (cont == 0)
-		return NULL; //recorrio 5 veces el for cambiando la prioridad y aun asi no hizo match. retorno null.
-	else if ((verificarFechaMaxima() == true)) {
-		ListDonantes [i] - donantee;
-		ListReceptores [i] - ElijoUno;
-		diadedonacion = setHoy();
+	if (cont == 0) {
+		ListDonantes + donantee;
+		return NULL; //recorrio 5 veces el for cambiando la prioridad y aun asi no hizo match. retorno null y agrego el donante a la lista
+	}
+	else if ((fluido.verificarFechaMaxima(donantee->getFechaExtraccionP()) == true)) {
+		ListReceptores - ElijoUno;
+		diadedonacion = fechahoy.getFechaHoy();
 		return ElijoUno;
-
 	}
 	else {
-		return NULL;
-		ListDonantes[i] - donantee;
-	} //hubo match pero el fluido estaba vencido, no se puede efectuar la donacion 
-
+		return NULL; //hubo match pero el fluido estaba vencido, no se puede efectuar la donacion
+	}  
 }
 
 /*en esta funcion ya hubo match asi que yo llamo para que me pase el receptor.
 	Me fijo que tipo de fluido es el donante y llamo a verificarfechamaxima para verificar que el fluido no este vencido.
-	Si no esta vencido, entonces se efectua la donacion. Aca elimino al donante y al receptor de sus listas
-
-	deberia pasarle a cRegistro el donante y receptor
+	Si no esta vencido, entonces se efectua la donacion.
 	*/
 
 //ingresa un receptor, recorre la lista y busca un donante. No debe compararse con los demas receptores porque sino ya habrian hecho match
@@ -118,7 +118,7 @@ int cBSA::contadorBSA(int priority, cDonante* don, cReceptor* rec) {
 	return contador; 
 }
 
-cReceptor* cBSA::compararDonantes(cReceptor* uno, cReceptor* dos) {
+cReceptor* cBSA::compararReceptores(cReceptor* uno, cReceptor* dos) {
 	cReceptor* ganador;
 	cFechas* fecha;
 	if (uno->getEstado() > dos->getEstado())
