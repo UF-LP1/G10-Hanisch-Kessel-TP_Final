@@ -6,12 +6,12 @@
 #include "cFluidos.h"
 class cMedula : public cFluidos {
 private:
-	const int tiempoMaximoM;
+	static int tiempoMaximoM;
 public:
-	cMedula();
+	cMedula(int tiempoMaximoM);
 	~cMedula();
 
-	bool verificarFechaMaxima(cFechas fechaExtraccion);
+	bool verificarFechaMaxima(cFechas* fechaExtraccion);
 };
 
 #endif // !_CMEDULA_H

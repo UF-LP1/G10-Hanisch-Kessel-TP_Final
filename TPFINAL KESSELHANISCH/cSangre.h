@@ -8,13 +8,13 @@
 using namespace std;
 class cSangre : cFluidos {
 private:
-	string tipoSangre;
-	const int tiempoMaximoS;
+	
+	static int tiempoMaximoS;
 public:
-	cSangre(string tipoSangre_, const int tiempoMaximoS_);
+	cSangre( int tiempoMaximoS_);
 	~cSangre();
 
-	string getTipoSangreP();
+	
 	bool verificarFechaMaxima(cFechas* fechaExtraccion);
 };
 #endif // !_CSANGRE_H

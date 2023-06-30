@@ -7,11 +7,11 @@
 class cPlasma : public cFluidos
 {
 private:
-	const int tiempoMaximoP;
+	static int tiempoMaximoP;
 public:
-	cPlasma();
+	cPlasma(int tiempoMaximoP);
 	~cPlasma();
 
-	bool verificarFechaMaxima(cFechas fechaExtraccion);
+	bool verificarFechaMaxima(cFechas* fechaExtraccion);
 };
 #endif // !_CPLASMA_H
