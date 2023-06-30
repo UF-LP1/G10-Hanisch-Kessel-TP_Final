@@ -38,6 +38,9 @@ void cFechas::setHoy() {
 	fecha.tm_year = aux->tm_year;
 
 }
+tm cFechas::getFechaHoy() {
+	return fecha;
+}
 bool cFechas::FechaCompleta() {
 	if (fecha.tm_year != 0 && fecha.tm_mon != 0 && fecha.tm_mday != 0 && fecha.tm_hour >= 0 && fecha.tm_sec >= 0) {
 		return true;

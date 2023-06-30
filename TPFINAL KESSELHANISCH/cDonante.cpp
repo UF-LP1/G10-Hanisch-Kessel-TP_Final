@@ -1,6 +1,6 @@
 #include "cDonante.h"
 
-cDonante::cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, cCentroSalud* CentroDeSalud, int DiaExtraccion, int MesExtraccion, int AnioExtraccion, int HoraExtraccion, int MinutosExtraccion, float volumenD_, bool sinTattos_, bool sinEnfermedades_, float pesoP_){
+cDonante::cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, cCentroSalud* CentroDeSalud, int DiaExtraccion, int MesExtraccion, int AnioExtraccion, int HoraExtraccion, int MinutosExtraccion, float volumenD_, bool sinTattos_, bool sinEnfermedades_, float pesoP_, cFluidos* fluido){
 	this->fechaExtraccion = new cFechas(DiaExtraccion, MesExtraccion, AnioExtraccion, HoraExtraccion, MinutosExtraccion);
 	this->volumenD = volumenD_;
 	this->sinTattos = sinTattos_;
@@ -43,6 +43,10 @@ bool cDonante::getPesoPacienteAct()
 {
 	return pesoP;
 }
+void cDonante::setFluidoDona(cFluidos* fluido) {
+	fluido= new cFluidos
+}
+
 
 
 void cDonante::setSinTatuajes(bool sinTattos_) {

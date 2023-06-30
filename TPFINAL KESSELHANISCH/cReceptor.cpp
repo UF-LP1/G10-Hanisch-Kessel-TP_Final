@@ -1,11 +1,11 @@
 #include "cReceptor.h"
 //me falta lo que esta en rojo que no se de donde sacarlo o como cambiarlo porque creo que se elimino algo que hace que no lo detecte
-cReceptor::cReceptor (string FReceptor_, cFechas fechaLista_, int prioridad_, int estado_, float cantF_){
-	this->FReceptor = FReceptor_;
-	this->FechaListaEspera = fechaLista_;
+cReceptor::cReceptor (string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, eFluido Fluido, cCentroSalud* CentroDeSaludstring, cFechas fechaLista_, int prioridad_, int estado_, float cantF_, cFluidos* fluido) {
+	this->FechaListaEspera = new cFechas(DiaNacimeinto, MesNacimeinto, AnioNacimeinto, HoraNacimeinto, MinutosNacimeinto);
 	this->prioridad = prioridad_;
 	this->Estado = estado_;
 	this->cantF = cantF_;
+
 }
 cReceptor::~cReceptor(){}
 
@@ -13,7 +13,7 @@ eFluido cReceptor::GetFluidoReceptor() {
 	return this->FReceptor; 
 }
 cFechas* cReceptor::GetFechaListaEspera() {
-	return this->fechaLista;
+	return this->FechaListaEspera;
 }
 int cReceptor::GetPrioridadReceptor() {
 	return this->prioridad;

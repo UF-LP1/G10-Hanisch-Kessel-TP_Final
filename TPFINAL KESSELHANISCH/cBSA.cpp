@@ -12,7 +12,7 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 	cReceptor* ElijoUno;
 	cReceptor* winner;
 	int cont = 0;
-	cFechas diadedonacion;
+	tm diadedonacion;
 
 	do {
 		for (int i = 0; i < ListReceptores.size(); i++) {
@@ -22,12 +22,6 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 					ElijoUno = ListReceptores[i];
 				else if (cont > 1) {
 					ElijoUno = compararDonantes(ElijoUno, ListReceptores[i]);
-				}
-				else {
-					 ListDonantes[i] - donantee;
-					 ListReceptores [i] - ElijoUno;
-					return ElijoUno; //esto creo que va mas abajo
-				}
 			}
 		}
 		if (cont == 0)
@@ -37,7 +31,7 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 	if (cont == 0)
 		return NULL; //recorrio 5 veces el for cambiando la prioridad y aun asi no hizo match. retorno null.
 	else if ((verificarFechaMaxima() == true)) {
-		ListDonantes - donantee;
+		ListDonantes [i] - donantee;
 		ListReceptores [i] - ElijoUno;
 		diadedonacion = setHoy();
 		return ElijoUno;
@@ -60,16 +54,19 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 //ingresa un receptor, recorre la lista y busca un donante. No debe compararse con los demas receptores porque sino ya habrian hecho match
 cDonante* cBSA::matchReceptor(cReceptor* receptorr, vector <cDonante*> ListDonantes, vector <cReceptor*> ListReceptor) {
 	int cont = 0;
-	cFechas diadedonacion;
+	tm diadedonacion;
+	cFluidos fluido;
+	cFechas fechahoy;
 
 	for (int i = 0; i < ListDonantes.size(); i++) {
-		if (coincidirFluido(ListDonantes[i], receptorr) == true && verificarFechaMaxima() == true) {
-			ListDonantes - ListDonantes[i];
-			diadedonacion = setHoy();
+		fluido = ListDonantes[i]->GetFluido();
+		if (coincidirFluido(ListDonantes[i], receptorr) == true && fluido.verificarFechaMaxima(ListDonantes[i]->getFechaExtraccionP()) == true) {
+			ListDonantes[i] - ListDonantes;
+			 diadedonacion = fechahoy.getFechaHoy();
 			return ListDonantes[i];
 		}
 		else
-			ListReceptor + receptorr;
+			ListReceptor.push_back(receptorr);
 		return NULL;
 	}
 }

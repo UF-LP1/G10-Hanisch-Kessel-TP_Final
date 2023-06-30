@@ -24,7 +24,7 @@ public:
 	static int HorasEntreFechas(cFechas* inicio, cFechas aux_fin);
 	void setHoy();
 	bool FechaCompleta();
-
+	tm getFechaHoy();
 	int getDia() const { return fecha.tm_mday; }
 	int getMes() const { return fecha.tm_mon; }
 	int getAnio() const { return fecha.tm_year; }

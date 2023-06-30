@@ -17,9 +17,10 @@ private:
     bool sinTattos; //si se hizo tattos en los ultimos dos meses
     bool sinEnfermedadesSangre;
     float pesoP;
+    cFluidos* fluido;
 
 public:
-    cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, cCentroSalud* CentroDeSalud, int DiaExtraccion, int MesExtraccion, int AnioExtraccion, int HoraExtraccion, int MinutosExtraccion, float volumenD_, bool sinTattos_, bool sinEnfermedades_, float pesoP_);
+    cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, cCentroSalud* CentroDeSalud, int DiaExtraccion, int MesExtraccion, int AnioExtraccion, int HoraExtraccion, int MinutosExtraccion, float volumenD_, bool sinTattos_, bool sinEnfermedades_, float pesoP_,cFluidos* fluido);
     ~cDonante();
 
     
@@ -33,7 +34,7 @@ public:
     void setSinTatuajes(bool sinTattos_);
     void setSinEnfermedadSangre(bool sinEnfermedades_);
     void setPesoPacienteAct(float pesoP_);
-    
+    void setFluidoDona(cFluidos* fluido);
 
     bool puedeDonar(bool sinTattos_, bool sinEnfermedades_, float pesoP_, cFechas* fNac);
     void imprimir();

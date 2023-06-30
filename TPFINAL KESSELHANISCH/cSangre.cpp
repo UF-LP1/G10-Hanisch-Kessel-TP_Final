@@ -14,7 +14,7 @@ void FechaCaducidadF() {
 
 }
 
-bool cSangre::verificarFechaMaxima(cFechas fechaExtraccion) {
+bool cSangre::verificarFechaMaxima(cFechas* fechaExtraccion) {
 	int fecha;
 	cFechas diferencia, fechaHoy;
 	fechaHoy.setHoy();

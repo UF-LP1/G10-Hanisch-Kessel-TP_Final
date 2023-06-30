@@ -7,6 +7,7 @@
 #include "cFechas.h"
 #include "Enums.h"
 #include "cCentroSalud.h"
+#include "cFluidos.h"
 using namespace std;
 class cPaciente
 {

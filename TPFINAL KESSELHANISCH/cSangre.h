@@ -15,6 +15,6 @@ public:
 	~cSangre();
 
 	string getTipoSangreP();
-	bool verificarFechaMaxima(cFechas fechaExtraccion);
+	bool verificarFechaMaxima(cFechas* fechaExtraccion);
 };
 #endif // !_CSANGRE_H
