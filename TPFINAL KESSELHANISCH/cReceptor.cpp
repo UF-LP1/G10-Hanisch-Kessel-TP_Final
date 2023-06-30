@@ -1,5 +1,5 @@
 #include "cReceptor.h"
-//me falta lo que esta en rojo que no se de donde sacarlo o como cambiarlo porque creo que se elimino algo que hace que no lo detecte
+
 cReceptor::cReceptor() {}
 
 cReceptor::cReceptor (string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, cFluidos* Fluido, cCentroSalud* CentroDeSalud, int DiaFechaLista, int MesFechaLista, int AnioFechaLista, int HoraFechaLista, int MinutosFechaLista, int prioridad_, eEstadoReceptor estado_, float cantF_) {
@@ -41,7 +41,12 @@ string cReceptor::ToStringReceptor()const {}
 
 
 ostream& operator<<(ostream& os, const cReceptor* receptor) {
-	//esto no se si va
+	
 }
 void cReceptor:: imprimir(){
+}
+
+string cReceptor::getProvinciaReceptor()
+{
+	return CentroDeSalud->getProvinciaCS();
 }

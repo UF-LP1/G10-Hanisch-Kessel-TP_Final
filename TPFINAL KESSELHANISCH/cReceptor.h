@@ -27,6 +27,7 @@ public:
 	int GetPrioridadReceptor();
 	string ToStringReceptor() const;
 	void imprimir();
+	string getProvinciaReceptor();
 	friend ostream& operator<<(ostream& os, const cReceptor* receptor);
 	float getCantFP(); //este no me acuerdo si iba o lo sacamos
 };

@@ -8,6 +8,7 @@
 #include "cPaciente.h"
 #include "cFluidos.h"
 #include "cFechas.h"
+#include "cRegistro.h"
 #include"Enums.h"
 using namespace std;
 int main() {
@@ -36,20 +37,27 @@ int main() {
 
 			if (donante3->puedeDonar(donante3->getSinTatuajes(), donante3->getSinEnfermedadSagre(), donante3->getPesoPacienteAct(), donante3->getFechaNacimiento()) == true) {
 				centro1->IngresarPaciente(donante3);
-				//llamo a matchDonante
-				/*
-				if(matchDonante==NULL{
-				
-				cout<<no se encontro un receptor, la donacion sera guardada en el banco<<endl;
-				(lo mismo para el resto)*/ 
+				if (BSA->matchDonante(donante3, ListReceptores, ListDonantes) == NULL) {
+
+					cout << "no se encontro un receptor, la donacion sera guardada en el banco" << endl;
+				}
+				else	cout << "Realizando Donacion" << endl;
 			}
 			else if (donante1->puedeDonar(donante1->getSinTatuajes(), donante1->getSinEnfermedadSagre(), donante1->getPesoPacienteAct(), donante1->getFechaNacimiento()) == true) {
 				centro2->IngresarPaciente(donante1);
-				//llamo a matchDonante
+				if (BSA->matchDonante(donante1, ListReceptores, ListDonantes) == NULL) {
+
+					cout << "no se encontro un receptor, la donacion sera guardada en el banco" << endl;
+				}
+				else	cout << "Realizando Donacion" << endl;
 			}
 			else if (donante2->puedeDonar(donante2->getSinTatuajes(), donante2->getSinEnfermedadSagre(), donante2->getPesoPacienteAct(), donante2->getFechaNacimiento()) == true) {
 				centro3->IngresarPaciente(donante2);
-				//llamo a matchDonante
+				if (BSA->matchDonante(donante2, ListReceptores, ListDonantes) == NULL) {
+
+					cout << "no se encontro un receptor, la donacion sera guardada en el banco" << endl;
+				}
+				else	cout << "Realizando Donacion" << endl;
 			}
 			else {
 				cout << "El Paciente no puede donar" << endl;
@@ -77,37 +85,26 @@ int main() {
 		centro1->IngresarPaciente(receptor1);
 		centro2->IngresarPaciente(receptor2);
 		centro3->IngresarPaciente(receptor3);
-		// aca llamo a matchReceptor para cada receptor
-		/*
-		if(matchReceptor==NULL{
-		  cout<<no se encontro un donante, ingresa a la lista de espera<<endl;
-		}
-		else
-		(no se si es necesario un else)
 		
-		*/
+		if (BSA->matchReceptor(receptor1, ListDonantes, ListReceptores) == NULL) {
+			cout << "no se encontro un donante, ingresa a la lista de espera" << endl;
+		}
+		else if (BSA->matchReceptor(receptor2, ListDonantes, ListReceptores) == NULL) {
+			cout << "no se encontro un donante, ingresa a la lista de espera" << endl;
+		}
+		else if (BSA->matchReceptor(receptor3, ListDonantes, ListReceptores) == NULL) {
+			cout << "no se encontro un donante, ingresa a la lista de espera" << endl;
+		}
+		else	cout << "Realizando Donacion" << endl;
 	}
 
-
-	cout << "Lista de Donantes:\n";
-	for (int i = 0; i < ListDonantes.size(); i++) {
-		cout << ListDonantes[i]->GetNombre() << " || " << "Fecha Extraccion: " << ListDonantes[i]->getFechaExtraccionP()<< "|| " << ListDonantes[i]->GetFluido()<<"||"<< ListDonantes[i]->GetCentroDeSalud()<<"||"<<  endl;
-	}
-	cout << std::endl;
-	cout << "\n";
-	cout << "Lista de Receptores:\n";
-	for (int i = 0; i < ListReceptores.size(); i++) {
-		cout << ListReceptores[i]->GetNombre() << " || " << "Fecha Lista ESpera: " << ListReceptores[i]->GetFechaListaEspera() << "|| " << ListReceptores[i]->GetFluidoReceptor() << "||" << ListReceptores[i]->GetCentroDeSalud() << "||" << endl;
-	}
-	cout << std::endl;
-	cout << "\n";
-	cout << "Lista de Centros de salud:\n";
-	for (int i = 0; i < ListCentros.size(); i++) {
-		cout << ListCentros[i]->getNombreCS() << " || " << "Telefono: " << ListCentros[i]->getTelefonoCS() << "|| " << ListCentros[i]->getPartidoCS() << "||" << ListCentros[i]->getProvinciaCS() << "||" << endl;
-	}
-	cout << std::endl;
-	cout << "\n";
-
+	// imprimimos los registros
+	cRegistro* registro;
+	registro->imprimirCS(ListCentros); //lista centros de salud
+	registro->imprimirDonantes(ListDonantes);
+	registro->imprimirReceptores(ListReceptores);
+	registro->imprimirMatch(ListDonantes, ListReceptores);//lista donaciones 
+	
 	return 0; 
 }
 

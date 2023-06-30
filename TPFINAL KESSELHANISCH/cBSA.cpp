@@ -58,14 +58,14 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 cDonante* cBSA::matchReceptor(cReceptor * receptorr, vector <cDonante*> ListDonantes, vector <cReceptor*> ListReceptor) {
 	int cont = 0;
 	tm diadedonacion;
-	cFluidos fluido;
-	cFechas fechahoy;
+	cFluidos* fluido;
+	cFechas* fechahoy;
 
 	for (int i = 0; i < ListDonantes.size(); i++) {
 		fluido = ListDonantes[i]->GetFluido();
-		if (coincidirFluido(ListDonantes[i], receptorr) == true && fluido.verificarFechaMaxima(ListDonantes[i]->getFechaExtraccionP()) == true) {
-			ListDonantes[i] - ListDonantes;
-			 diadedonacion = fechahoy.getFechaHoy();
+		if (coincidirFluido(ListDonantes[i], receptorr) == true && fluido->verificarFechaMaxima(ListDonantes[i]->getFechaExtraccionP()) == true) {
+			ListDonantes[i]-ListDonantes[i];
+			 diadedonacion = fechahoy->getFechaHoy();
 			return ListDonantes[i];
 		}
 		else
@@ -115,7 +115,7 @@ bool cBSA::coincidirFluido(cDonante* dona, cReceptor* rece) {
 
 int cBSA::contadorBSA(int priority, cDonante* don, cReceptor* rec) {
 	int contador = 0;
-	if (rec->GetPrioridadReceptor() == priority && rec->getProvincia() == don->getProvinciaDonante()) {
+	if (rec->GetPrioridadReceptor() == priority && rec->getProvinciaReceptor() == don->getProvinciaDonante()) {
 		contador++;
 	}   
 	return contador; 

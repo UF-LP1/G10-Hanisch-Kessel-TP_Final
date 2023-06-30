@@ -1,29 +1,7 @@
 
 #include"Enums.h"
 
-string PrioridadToString(ePrioridad prioridad) {
-	switch (prioridad)
-	{
-	case ePrioridad::Urgente:
-		return"Urgente";
-		break;
-	case ePrioridad::Alta:
-		return"Alta";
-		break;
-	case ePrioridad::Media:
-		return"Media";
-		break;
-	case ePrioridad::Baja:
-		return"Baja";
-		break;
-	case ePrioridad::Muy_baja:
-		return"Muy Baja";
-		break;
-	default:
-		return "";
-		break;
-	}
-}
+
 
 string SexoToString(eSexo sexo) {
 	switch (sexo)
