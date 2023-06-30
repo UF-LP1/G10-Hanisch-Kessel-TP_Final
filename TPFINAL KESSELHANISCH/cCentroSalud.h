@@ -12,7 +12,7 @@
 using namespace std;
 class cCentroSalud
 {
-private:
+protected:
 	string nombreC;
 	string direccion;
 	string partido;

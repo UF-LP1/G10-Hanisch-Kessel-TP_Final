@@ -1,16 +1,17 @@
 #include "cReceptor.h"
 //me falta lo que esta en rojo que no se de donde sacarlo o como cambiarlo porque creo que se elimino algo que hace que no lo detecte
-cReceptor::cReceptor (string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, eFluido Fluido, cCentroSalud* CentroDeSaludstring, cFechas fechaLista_, int prioridad_, int estado_, float cantF_, cFluidos* fluido) {
-	this->FechaListaEspera = new cFechas(DiaNacimeinto, MesNacimeinto, AnioNacimeinto, HoraNacimeinto, MinutosNacimeinto);
+cReceptor::cReceptor() {}
+
+cReceptor::cReceptor (string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, cFluidos* Fluido, cCentroSalud* CentroDeSalud, int DiaFechaLista, int MesFechaLista,int AnioFechaLista, int HoraFechaLista, int MinutosFechaLista, int prioridad_, eEstadoReceptor estado_, float cantF_) {
+	this->FechaListaEspera = new cFechas(DiaFechaLista, MesFechaLista, AnioFechaLista, HoraFechaLista, MinutosFechaLista);
 	this->prioridad = prioridad_;
-	this->Estado = estado_;
 	this->cantF = cantF_;
 
 }
 cReceptor::~cReceptor(){}
 
-eFluido cReceptor::GetFluidoReceptor() {
-	return this->FReceptor; 
+cFluidos* cReceptor::GetFluidoReceptor() {
+	return this->Fluido; 
 }
 cFechas* cReceptor::GetFechaListaEspera() {
 	return this->FechaListaEspera;
@@ -33,18 +34,14 @@ void cReceptor::SetEstadoP(eEstadoReceptor NuevoEstado) {
 	this->Estado = NuevoEstado;
 	return;
 }
-void cReceptor::SetFluidoReceptor(eFluido NuevoFluido) {
-
+void cReceptor::SetFluidoReceptor(cFluidos* NuevoFluido) {
+	this->Fluido =  NuevoFluido;
 }
-string ToStringReceptor() {
-
-}
+string ToStringReceptor() {}
 string getProvincia() {
-
+	returnCentroDeSalud.getProvinciaCS();
 }
-string getProvincia() {
 
-}
 ostream& operator<<(ostream& os, const cReceptor* receptor) {
 	//esto no se si va
 }

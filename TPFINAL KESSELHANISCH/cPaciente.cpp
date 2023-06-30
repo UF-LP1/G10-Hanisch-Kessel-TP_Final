@@ -10,7 +10,7 @@ cPaciente::cPaciente() {
 
 
 
-cPaciente::cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, eFluido Fluido, cCentroSalud* CentroDeSalud) {
+cPaciente::cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, cFluidos* Fluido, cCentroSalud* CentroDeSalud) {
 	this->Nombre = Nombre;
 	this->FechaNacimeinto = new cFechas(DiaNacimeinto, MesNacimeinto, AnioNacimeinto, HoraNacimeinto, MinutosNacimeinto);
 	this->NumeroTelefono = NumeroTelefono;
@@ -38,9 +38,9 @@ eTipoDeSangre cPaciente::GetTipoDeSangre() const {
 	return Sangre;
 }
 
-eFluido cPaciente::GetFluido() const
+cFluidos* cPaciente::GetFluido() const
 {
-	return eFluido();
+	return Fluido;
 }
 
 string cPaciente::GetNombre() const {

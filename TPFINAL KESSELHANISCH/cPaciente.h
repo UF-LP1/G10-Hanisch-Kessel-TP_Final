@@ -17,15 +17,15 @@ protected: //Cambie algunos atributos a enums y los que eran tipo fecha y faltab
 	eSexo SexoPaciente;
 	string NumeroTelefono;
 	eTipoDeSangre Sangre;
-	eFluido Fluido;
+	cFluidos* Fluido;
 	cCentroSalud* CentroDeSalud = NULL;
 public:
 	cPaciente();
-	cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, eFluido Fluido, cCentroSalud* CentroDeSalud);
+	cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, cFluidos* Fluido, cCentroSalud* CentroDeSalud);
 	virtual ~cPaciente();
 	void SetCentroDeSalud(cCentroSalud* CentroDeSalud);
 	eTipoDeSangre GetTipoDeSangre() const;
-	eFluido GetFluido() const;
+	cFluidos* GetFluido() const;
 	string GetNombre() const;
 	cCentroSalud* GetCentroDeSalud() const;
 	string ToStringPaciente() const;
