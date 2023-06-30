@@ -7,7 +7,8 @@ cBSA::~cBSA(){}
 
 
 //ingresa un donante nuevo, recorro la lista y busco un receptor
-cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListReceptores, vector <cDonante*> ListDonantes) {
+cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListReceptores, vector <cDonante*> ListDonantes)
+{
 	int prioridad = 1;
 	cReceptor* ElijoUno;
 	cReceptor* winner;
@@ -25,26 +26,26 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 				cont = contadorBSA(prioridad, donantee, ListReceptores[i]);
 				if (cont == 1)
 					ElijoUno = ListReceptores[i];
-				else if (cont > 1) 
+				else if (cont > 1)
 					ElijoUno = compararReceptores(ElijoUno, ListReceptores[i]);
 			}
 		}
 		if (cont == 0)
 			prioridad++;
 	} while (cont == 0 && prioridad < 6);
-	for (int i = 0; i < ListReceptores.size(); i++){
-	if (cont == 0) {
-		ListDonantes.push_back(donantee);
-		return NULL; //recorrio 5 veces el for cambiando la prioridad y aun asi no hizo match. retorno null y agrego el donante a la lista
+	for (int i = 0; i < ListReceptores.size(); i++) {
+		if (cont == 0) {
+			ListDonantes.push_back(donantee);
+			return NULL; //recorrio 5 veces el for cambiando la prioridad y aun asi no hizo match. retorno null y agrego el donante a la lista
+		}
+		else if ((fluido->verificarFechaMaxima(donantee->getFechaExtraccionP()) == true)) {
+			ListReceptores[i] - ElijoUno;
+			diadedonacion = fechahoy->getFechaHoy();
+			return ElijoUno;
+		}
+		else
+			return NULL; //hubo match pero el fluido estaba vencido, no se puede efectuar la donacion
 	}
-	else if ((fluido->verificarFechaMaxima(donantee->getFechaExtraccionP()) == true)) {
-	    ListReceptores[i] - ElijoUno;
-		diadedonacion = fechahoy->getFechaHoy();
-		return ElijoUno;
-	}
-	else {
-		return NULL; //hubo match pero el fluido estaba vencido, no se puede efectuar la donacion
-	}  
 }
 
 /*en esta funcion ya hubo match asi que yo llamo para que me pase el receptor.
@@ -53,7 +54,8 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 	*/
 
 //ingresa un receptor, recorre la lista y busca un donante. No debe compararse con los demas receptores porque sino ya habrian hecho match
-	cDonante* cBSA::matchReceptor(cReceptor * receptorr, vector <cDonante*> ListDonantes, vector <cReceptor*> ListReceptor) {
+
+cDonante* cBSA::matchReceptor(cReceptor * receptorr, vector <cDonante*> ListDonantes, vector <cReceptor*> ListReceptor) {
 	int cont = 0;
 	tm diadedonacion;
 	cFluidos fluido;
