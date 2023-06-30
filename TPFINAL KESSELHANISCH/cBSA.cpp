@@ -20,11 +20,12 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 
 	do {
 		for (int i = 0; i < ListReceptores.size(); i++) {
-			if (coincidirFluido(donantee, ListReceptores[i]) == true) {
+			if (coincidirFluido(donantee, ListReceptores[i]) == true)
+			{
 				cont = contadorBSA(prioridad, donantee, ListReceptores[i]);
 				if (cont == 1)
 					ElijoUno = ListReceptores[i];
-				else if (cont > 1) {
+				else if (cont > 1) 
 					ElijoUno = compararReceptores(ElijoUno, ListReceptores[i]);
 			}
 		}
@@ -108,7 +109,7 @@ bool cBSA::coincidirFluido(cDonante* dona, cReceptor* rece) {
 			return true;
 	}
 	return false;
-} 
+ }
 
 int cBSA::contadorBSA(int priority, cDonante* don, cReceptor* rec) {
 	int contador = 0;
@@ -121,12 +122,15 @@ int cBSA::contadorBSA(int priority, cDonante* don, cReceptor* rec) {
 cReceptor* cBSA::compararReceptores(cReceptor* uno, cReceptor* dos) {
 	cReceptor* ganador;
 	cFechas* fecha;
-	if (uno->getEstado() > dos->getEstado())
+	if (uno->getEstado() > dos->getEstado()) {
 		ganador = dos;
-	else if (uno->getEstado() < dos->getEstado()) 
+	}
+	else if (uno->getEstado() < dos->getEstado()) {
 		ganador = uno;
-	else
-		fecha = fecha->CompararFechas( uno, dos); 
+	}
+	else {
+		fecha = fecha->CompararFechas(uno, dos);
+	}
 	if (fecha == uno->GetFechaListaEspera()) {
 		ganador = uno;
 	}
