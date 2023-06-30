@@ -14,7 +14,7 @@ protected:
 	float cantF;
 public:
 	cReceptor();
-	cReceptor(int DiaFechaLista, int MesFechaLista, int AnioFechaLista, int HoraFechaLista, int MinutosFechaLista, int prioridad_, eEstadoReceptor estado_, float cantF_);
+	cReceptor(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, cFluidos* Fluido, cCentroSalud* CentroDeSalud, int DiaFechaLista, int MesFechaLista, int AnioFechaLista, int HoraFechaLista, int MinutosFechaLista, int prioridad_, eEstadoReceptor estado_, float cantF_);
 	~cReceptor();
 	void SetEstadoP(eEstadoReceptor NuevoEstado);
 	eEstadoReceptor getEstado();
@@ -26,7 +26,6 @@ public:
 	//ePrioridad GetPrioridadReceptor();
 	int GetPrioridadReceptor();
 	string ToStringReceptor() const;
-	string getProvincia();
 	void imprimir();
 	friend ostream& operator<<(ostream& os, const cReceptor* receptor);
 	float getCantFP(); //este no me acuerdo si iba o lo sacamos

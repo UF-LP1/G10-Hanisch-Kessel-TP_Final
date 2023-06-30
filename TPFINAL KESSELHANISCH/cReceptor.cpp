@@ -37,11 +37,11 @@ void cReceptor::SetEstadoP(eEstadoReceptor NuevoEstado) {
 void cReceptor::SetFluidoReceptor(cFluidos* NuevoFluido) {
 	this->Fluido =  NuevoFluido;
 }
-string ToStringReceptor() {}
+string cReceptor::ToStringReceptor()const {}
 
 
 ostream& operator<<(ostream& os, const cReceptor* receptor) {
 	//esto no se si va
 }
-void imprimir(){
+void cReceptor:: imprimir(){
 }
