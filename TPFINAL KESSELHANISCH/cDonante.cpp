@@ -1,13 +1,16 @@
 #include "cDonante.h"
 
-cDonante::cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, cFluidos* fluido, cCentroSalud* CentroDeSalud, int DiaExtraccion, int MesExtraccion, int AnioExtraccion, int HoraExtraccion, int MinutosExtraccion, float volumenD_, bool sinTattos_, bool sinEnfermedades_, float pesoP_) :cPaciente(Nombre, NumeroTelefono, Sangre, DiaNacimeinto, MesNacimeinto, AnioNacimeinto, HoraNacimeinto, MinutosNacimeinto, Fluido, CentroDeSalud) {
+cDonante::cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, cFluidos* fluido, cCentroSalud* CentroDeSalud, int DiaExtraccion, int MesExtraccion, int AnioExtraccion, int HoraExtraccion, int MinutosExtraccion, float volumenD_, bool sinTattos_, bool sinEnfermedades_, float pesoP_) :cPaciente(Nombre, NumeroTelefono, Sangre, DiaNacimeinto, MesNacimeinto, AnioNacimeinto, HoraNacimeinto, MinutosNacimeinto, fluido, CentroDeSalud) {
 	this->fechaExtraccion = new cFechas(DiaExtraccion, MesExtraccion, AnioExtraccion, HoraExtraccion, MinutosExtraccion);
 	this->volumenD = volumenD_;
 	this->sinTattos = sinTattos_;
 	this->sinEnfermedadesSangre = sinEnfermedades_;
 	this->pesoP = pesoP_;
 }
-cDonante::~cDonante(){}
+cDonante::~cDonante() {
+	delete fechaExtraccion;
+	delete FechaNacimeinto;
+}
 
 
 
@@ -44,7 +47,7 @@ bool cDonante::getPesoPacienteAct()
 	return pesoP;
 }
 void cDonante::setFluidoDona(cFluidos* fluido) {
-	fluido = new cFluidos;
+	cFluidos* Fluido = new cFluidos(*fluido);
 }
 
 
@@ -70,5 +73,4 @@ bool cDonante::puedeDonar(bool sinTattos_,bool sinEnfermedades_, float pesoP_, c
 }
 
 
-void imprimir(){}
  

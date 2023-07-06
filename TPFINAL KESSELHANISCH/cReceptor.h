@@ -8,12 +8,12 @@ class cReceptor : public cPaciente {
 protected:
 	// lo mismo que en paciente y habia una cantidad de fluido, sera muy necesario? lo saque se puede agregar
 
-	cFechas* FechaListaEspera = NULL;
+	cFechas* FechaListaEspera = nullptr;
 	int prioridad; //la prioridad va de 1 a 5, de mas urgente a menos urgente
 	eEstadoReceptor Estado;
 	float cantF;
 public:
-	cReceptor();
+
 	cReceptor(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, cFluidos* Fluido, cCentroSalud* CentroDeSalud, int DiaFechaLista, int MesFechaLista, int AnioFechaLista, int HoraFechaLista, int MinutosFechaLista, int prioridad_, eEstadoReceptor estado_, float cantF_);
 	~cReceptor();
 	void SetEstadoP(eEstadoReceptor NuevoEstado);

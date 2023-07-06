@@ -27,9 +27,9 @@ int main() {
 	cDonante* donante2 = new cDonante("Gonzalo Martinez", "113912", eTipoDeSangre::AB_Negativo, 25, 5, 1992, 9, 12, medula1, centro3, 9, 12, 2019, 18, 50, 500, true, true, 72);
 	cDonante* donante1 = new cDonante("Juan Fernando Quintero", "112912", eTipoDeSangre::O_Negativo, 14, 1, 1993, 9, 12, sangre1, centro2, 9, 12, 2018, 18, 50, 500, true, true, 70);
 	cDonante* donante3 = new cDonante("Lucas Pratto", "111912", eTipoDeSangre::O_Positivo, 9, 12, 1985, 9, 12, plasma1, centro1, 17, 11, 2018, 18, 50, 500, true, true, 85);
-	cReceptor* receptor1 = new cReceptor("Carlos Tevez", "110912", eTipoDeSangre::A_Positivo, 10, 2, 1974, 9, 12, plasma1, centro1, 4, 6, 2017, 3,5,4, eEstadoReceptor::Estable, 500);
-	cReceptor* receptor2 = new cReceptor("Juan Roman Riquelme", "1	19120", eTipoDeSangre::A_Negativo, 24, 6, 1974, 9, 12,  sangre1, centro2, 4, 6, 2015, 1,5,1, eEstadoReceptor::Inestable, 500);
-	cReceptor* receptor3 = new cReceptor("Guillermo Barros Schelloto", "110912", eTipoDeSangre::A_Positivo, 15, 12, 1984, 9, 12, medula1, centro3, 4, 6, 2007,4, 5,2, eEstadoReceptor::Estable, 500);
+	cReceptor* receptor1 = new cReceptor("Carlos Tevez", "110912", eTipoDeSangre::A_Positivo, 10, 2, 1974, 9, 12, plasma1, centro1, 4, 6, 2017, 3, 5, 4, eEstadoReceptor::Estable, 500);
+	cReceptor* receptor2 = new cReceptor("Juan Roman Riquelme", "1	19120", eTipoDeSangre::A_Negativo, 24, 6, 1974, 9, 12, sangre1, centro2, 4, 6, 2015, 1, 5, 1, eEstadoReceptor::Inestable, 500);
+	cReceptor* receptor3 = new cReceptor("Guillermo Barros Schelloto", "110912", eTipoDeSangre::A_Positivo, 15, 12, 1984, 9, 12, medula1, centro3, 4, 6, 2007, 4, 5, 2, eEstadoReceptor::Estable, 500);
 	vector<cCentroSalud*> ListCentros;
 	vector<cDonante*> ListDonantes;
 	vector<cReceptor*> ListReceptores;
@@ -83,7 +83,7 @@ int main() {
 		ListCentros.push_back(centro2);
 		ListCentros.push_back(centro3);
 		ListCentros.push_back(centro4);
- }
+	}
 	catch (exception& e) {
 		std::cout << e.what() << endl;
 	}
@@ -92,7 +92,7 @@ int main() {
 		centro1->IngresarPaciente(receptor1);
 		centro2->IngresarPaciente(receptor2);
 		centro3->IngresarPaciente(receptor3);
-		
+
 		if (BSA->matchReceptor(receptor1, ListDonantes, ListReceptores) == NULL) {
 			cout << "no se encontro un donante, ingresa a la lista de espera" << endl;
 		}
@@ -106,12 +106,26 @@ int main() {
 	}
 
 	// imprimimos los registros
-	cRegistro* registro;
+	cRegistro* registro = new cRegistro();
 	registro->imprimirCS(ListCentros); //lista centros de salud
 	registro->imprimirDonantes(ListDonantes);
 	registro->imprimirReceptores(ListReceptores);
 	registro->imprimirMatch(ListDonantes, ListReceptores);//lista donaciones 
-	
+
+	delete BSA;
+	delete sangre1;
+	delete medula1;
+	delete plasma1;
+	delete donante1;
+	delete donante2;
+	delete donante3;
+	delete receptor1;
+	delete receptor2;
+	delete receptor3;
+	delete centro1;
+	delete centro2;
+	delete centro3;
+	delete centro4;
 	return 0; 
 }
 
