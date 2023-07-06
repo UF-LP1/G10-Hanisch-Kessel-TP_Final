@@ -1,6 +1,8 @@
 #include "cPlasma.h"
 
-cPlasma::cPlasma(int tiempoMaximoP) { this->tiempoMaximoP; }
+cPlasma::cPlasma(int tiempoMaximoP):cFluidos() {
+	this->tiempoMaximoP; 
+}
 cPlasma::~cPlasma(){}
 
 

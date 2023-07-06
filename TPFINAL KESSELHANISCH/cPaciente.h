@@ -13,12 +13,12 @@ class cPaciente
 {
 protected: //Cambie algunos atributos a enums y los que eran tipo fecha y faltaba el centro de salud
 	string Nombre;
-	cFechas* FechaNacimeinto = NULL;
+	cFechas* FechaNacimeinto = nullptr;
 	eSexo SexoPaciente;
 	string NumeroTelefono;
 	eTipoDeSangre Sangre;
 	cFluidos* Fluido;
-	cCentroSalud* CentroDeSalud = NULL;
+	cCentroSalud* CentroDeSalud = nullptr;
 public:
 	cPaciente();
 	cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, cFluidos* Fluido, cCentroSalud* CentroDeSalud);

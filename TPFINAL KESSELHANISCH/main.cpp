@@ -10,19 +10,26 @@
 #include "cFechas.h"
 #include "cRegistro.h"
 #include"Enums.h"
+#include "cPlasma.h"
+#include "cSangre.h"
+#include "cMedula.h"
 using namespace std;
+
 int main() {
 	cBSA* BSA = new cBSA();
+	cSangre* sangre1 = new cSangre(42);
+	cMedula* medula1 = new cMedula(1);
+	cPlasma* plasma1 = new cPlasma(354);
 	cCentroSalud* centro1 = new cCentroSalud("Hospital Favaloro", "Av Belgrano 960", "Monserrat", "CABA", "111111");
 	cCentroSalud* centro2 = new cCentroSalud("Hospital Gallardo", "Av Libertadores 912", "Nuñez", "CABA", "091218");
 	cCentroSalud* centro3 = new cCentroSalud("Hospital EnzoPerez", "Av MiCapitan 24  ", "Maipu", "Mendoza", "002400");
 	cCentroSalud* centro4 = new cCentroSalud("Hospital Demichelis", "Av Fuhrer 2023", "Belgrano", "CABA", "112023");
-	cDonante* donante1 = new cDonante("Juan Fernando Quintero", "112912", eTipoDeSangre::O_Negativo, 14, 1, 1993, 9, 12, centro2, 9, 12, 2018, 18, 50, 500, true, true, 70);
-	cDonante* donante2 = new cDonante("Gonzalo Martinez", "113912", eTipoDeSangre::AB_Negativo, 25, 5, 1992, 9, 12, centro3, 9, 12, 2019, 18, 50, 500, true, true, 72);
-	cDonante* donante3 = new cDonante("Lucas Pratto", "111912", eTipoDeSangre::O_Positivo, 9, 12, 1985, 9, 12, centro1, 17, 11, 2018, 18, 50, 500, true, true, 85);
-	cReceptor* receptor1 = new cReceptor("Carlos Tevez", "110912", eTipoDeSangre::A_Positivo, 10, 2, 1974, 9, 12,eFluido::Plasma, centro1, 4, 6, 2017, 3,5,4, eEstadoReceptor::Estable);
-	cReceptor* receptor2 = new cReceptor("Juan Roman Riquelme", "119120", eTipoDeSangre::A_Negativo, 24, 6, 1974, 9, 12, eFluido::Plasma, centro2, 4, 6, 2015, 1,5,1, eEstadoReceptor::Inestable);
-	cReceptor* receptor3 = new cReceptor("Guillermo Barros Schelloto", "110912", eTipoDeSangre::A_Positivo, 15, 12, 1984, 9, 12, eFluido::Sangre, centro3, 4, 6, 2007,4, 5,2, eEstadoReceptor::Estable);
+	cDonante* donante2 = new cDonante("Gonzalo Martinez", "113912", eTipoDeSangre::AB_Negativo, 25, 5, 1992, 9, 12, medula1, centro3, 9, 12, 2019, 18, 50, 500, true, true, 72);
+	cDonante* donante1 = new cDonante("Juan Fernando Quintero", "112912", eTipoDeSangre::O_Negativo, 14, 1, 1993, 9, 12, sangre1, centro2, 9, 12, 2018, 18, 50, 500, true, true, 70);
+	cDonante* donante3 = new cDonante("Lucas Pratto", "111912", eTipoDeSangre::O_Positivo, 9, 12, 1985, 9, 12, plasma1, centro1, 17, 11, 2018, 18, 50, 500, true, true, 85);
+	cReceptor* receptor1 = new cReceptor("Carlos Tevez", "110912", eTipoDeSangre::A_Positivo, 10, 2, 1974, 9, 12, plasma1, centro1, 4, 6, 2017, 3,5,4, eEstadoReceptor::Estable, 500);
+	cReceptor* receptor2 = new cReceptor("Juan Roman Riquelme", "1	19120", eTipoDeSangre::A_Negativo, 24, 6, 1974, 9, 12,  sangre1, centro2, 4, 6, 2015, 1,5,1, eEstadoReceptor::Inestable, 500);
+	cReceptor* receptor3 = new cReceptor("Guillermo Barros Schelloto", "110912", eTipoDeSangre::A_Positivo, 15, 12, 1984, 9, 12, medula1, centro3, 4, 6, 2007,4, 5,2, eEstadoReceptor::Estable, 500);
 	vector<cCentroSalud*> ListCentros;
 	vector<cDonante*> ListDonantes;
 	vector<cReceptor*> ListReceptores;

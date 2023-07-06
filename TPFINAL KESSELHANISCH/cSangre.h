@@ -6,7 +6,7 @@
 #include "cFluidos.h"
 #include <string>
 using namespace std;
-class cSangre : cFluidos {
+class cSangre : public cFluidos {
 private:
 	
 	static int tiempoMaximoS;

@@ -1,6 +1,6 @@
 #include "cSangre.h"
 
-cSangre::cSangre( int tiempoMaximoS_) {
+cSangre::cSangre( int tiempoMaximoS_) : cFluidos(){
 	
 	this->tiempoMaximoS = tiempoMaximoS_;
 }
@@ -12,7 +12,7 @@ bool cSangre::verificarFechaMaxima(cFechas* fechaExtraccion) {
 	int fecha;
 	cFechas diferencia, fechaHoy;
 	fechaHoy.setHoy();
-	fecha = diferencia.HorasEntreFechas(&fechaExtraccion, fechaHoy);
+	fecha = diferencia.HorasEntreFechas(fechaExtraccion, fechaHoy);
 	if (fecha > 1008) {
 		return false;
 	}

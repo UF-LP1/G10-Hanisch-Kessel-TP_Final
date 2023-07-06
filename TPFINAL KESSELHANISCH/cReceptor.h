@@ -19,17 +19,15 @@ public:
 	void SetEstadoP(eEstadoReceptor NuevoEstado);
 	eEstadoReceptor getEstado();
 	cFechas* GetFechaListaEspera();
-	//void SetPrioridad(ePrioridad NuevaPrioridad);
 	void SetPrioridad(int NuevaPrioridad);
 	void SetFluidoReceptor(cFluidos* NuevoFluido);
 	cFluidos* GetFluidoReceptor();
-	//ePrioridad GetPrioridadReceptor();
 	int GetPrioridadReceptor();
 	string ToStringReceptor() const;
 	void imprimir();
 	string getProvinciaReceptor();
 	friend ostream& operator<<(ostream& os, const cReceptor* receptor);
-	float getCantFP(); //este no me acuerdo si iba o lo sacamos
+	float getCantFP();
 };
 
 #endif // !_CRECEPTOR_H

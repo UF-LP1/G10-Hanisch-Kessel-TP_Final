@@ -12,7 +12,7 @@ class cDonante : public cPaciente {
   //Creo que habia muchos atributos que estaban bien pensados pero que iban a complicar mucho el tp
 private:
     
-    cFechas* fechaExtraccion=NULL;
+    cFechas* fechaExtraccion=nullptr;
     float volumenD;
     bool sinTattos; //si se hizo tattos en los ultimos dos meses
     bool sinEnfermedadesSangre;

@@ -2,13 +2,13 @@
 
 cReceptor::cReceptor() {}
 
-cReceptor::cReceptor (string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, cFluidos* Fluido, cCentroSalud* CentroDeSalud, int DiaFechaLista, int MesFechaLista, int AnioFechaLista, int HoraFechaLista, int MinutosFechaLista, int prioridad_, eEstadoReceptor estado_, float cantF_) {
-	this->FechaListaEspera = new cFechas(DiaFechaLista, MesFechaLista, AnioFechaLista, HoraFechaLista, MinutosFechaLista);
-	this->prioridad = prioridad_;
-	this->cantF = cantF_;
-
+cReceptor::cReceptor (string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, cFluidos* Fluido, cCentroSalud* CentroDeSalud, int DiaFechaLista, int MesFechaLista, int AnioFechaLista, int HoraFechaLista, int MinutosFechaLista, int prioridad_, eEstadoReceptor estado_, float cantF_):cPaciente( Nombre,  NumeroTelefono,  Sangre,  DiaNacimeinto,  MesNacimeinto,  AnioNacimeinto,  HoraNacimeinto, MinutosNacimeinto, Fluido, CentroDeSalud) {
+		this->FechaListaEspera = new cFechas(DiaFechaLista, MesFechaLista, AnioFechaLista, HoraFechaLista, MinutosFechaLista);
+		this->prioridad = prioridad_;
+		this->cantF = cantF_;
 }
-cReceptor::~cReceptor(){}
+
+cReceptor::~cReceptor() {}
 
 cFluidos* cReceptor::GetFluidoReceptor() {
 	return this->Fluido; 

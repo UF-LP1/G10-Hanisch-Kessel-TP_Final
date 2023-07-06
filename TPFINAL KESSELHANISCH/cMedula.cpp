@@ -1,6 +1,10 @@
 #include "cMedula.h"
 
-cMedula::cMedula(int tiempoMaximoM) { this->tiempoMaximoM; }
+int cMedula::tiempoMaximoM = 1;
+
+cMedula::cMedula(int tiempoMaximoM):cFluidos() {
+	this->tiempoMaximoM; 
+}
 cMedula::~cMedula(){}
 
 
