@@ -2,6 +2,7 @@
 #ifndef _CRECEPTOR_H
 #define _CRECEPTOR_H
 #include "cPaciente.h"
+#include "cFechas.h"
 
 using namespace std;
 class cReceptor : public cPaciente {

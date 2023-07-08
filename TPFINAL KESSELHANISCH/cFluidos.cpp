@@ -5,4 +5,4 @@ cFluidos::cFluidos(){
 }
 cFluidos::~cFluidos(){}
 
-bool verificarFechaMaxima(cFechas* fechaExtraccion){}
+bool verificarFechaMaxima(cFechas* fechaExtraccion) { return false; }

@@ -7,9 +7,8 @@
 #include <iostream>
 #include <ctime>
 #include <string>
-#include "cPaciente.h"
-using namespace std;
-
+class cReceptor;
+using namespace std; 
 class cFechas
 {
 private:

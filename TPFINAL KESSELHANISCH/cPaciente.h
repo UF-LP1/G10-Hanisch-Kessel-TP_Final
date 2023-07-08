@@ -6,9 +6,9 @@
 #include <string>
 #include "cFechas.h"
 #include "Enums.h"
-#include "cCentroSalud.h"
-#include "cFluidos.h"
 using namespace std;
+class cCentroSalud;
+class cFluidos;
 class cPaciente
 {
 protected: //Cambie algunos atributos a enums y los que eran tipo fecha y faltaba el centro de salud

@@ -7,7 +7,7 @@
 #include "cPaciente.h"
 #include "cFechas.h"
 using namespace std;
-
+class cFluidos;
 class cDonante : public cPaciente {
   //Creo que habia muchos atributos que estaban bien pensados pero que iban a complicar mucho el tp
 private:
