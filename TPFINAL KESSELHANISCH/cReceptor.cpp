@@ -45,8 +45,7 @@ string cReceptor::ToStringReceptor()const {}
 ostream& operator<<(ostream& os, const cReceptor* receptor) {
 	
 }
-void cReceptor:: imprimir(){
-}
+
 
 string cReceptor::getProvinciaReceptor()
 {

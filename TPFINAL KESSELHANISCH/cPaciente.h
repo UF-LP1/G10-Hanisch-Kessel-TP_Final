@@ -13,10 +13,9 @@ class cPaciente
 {
 protected: //Cambie algunos atributos a enums y los que eran tipo fecha y faltaba el centro de salud
 	string Nombre;
-	cFechas* FechaNacimeinto = nullptr;
-	eSexo SexoPaciente;
 	string NumeroTelefono;
 	eTipoDeSangre Sangre;
+	cFechas* FechaNacimeinto = nullptr;
 	cFluidos* Fluido;
 	cCentroSalud* CentroDeSalud = nullptr;
 public:
@@ -30,7 +29,7 @@ public:
 	cCentroSalud* GetCentroDeSalud()const;
 	string ToStringPaciente()const;
 	bool operator==(const cPaciente& OtroPaciente);
-	virtual void imprimir() = 0;
+	
 };
 
 #endif // !_CPACIENTE_H
