@@ -15,7 +15,7 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 	int cont = 0;
 	tm diadedonacion;
 	cFluidos* fluido;
-	cFechas* fechahoy;
+	cFechas fechahoy;
 
 	fluido = donantee->GetFluido();
 
@@ -40,7 +40,7 @@ cReceptor* cBSA::matchDonante(cDonante* donantee, vector <cReceptor*> ListRecept
 		}
 		else if ((fluido->verificarFechaMaxima(donantee->getFechaExtraccionP()) == true)) {
 			ListReceptores[i] - ElijoUno;
-			diadedonacion = fechahoy->getFechaHoy();
+			diadedonacion = fechahoy.getFechaHoy();
 			return ElijoUno;
 		}
 		else
@@ -124,6 +124,7 @@ int cBSA::contadorBSA(int priority, cDonante* don, cReceptor* rec) {
 cReceptor* cBSA::compararReceptores(cReceptor* uno, cReceptor* dos) {
 	cReceptor* ganador;
 	cFechas* fecha;
+	cBSA bsa;
 	if (uno->getEstado() > dos->getEstado()) {
 		ganador = dos;
 	}
@@ -131,7 +132,7 @@ cReceptor* cBSA::compararReceptores(cReceptor* uno, cReceptor* dos) {
 		ganador = uno;
 	}
 	else {
-		fecha = fecha->CompararFechas(uno, dos);
+		fecha = bsa.CompararFechas(uno, dos);
 	}
 	if (fecha == uno->GetFechaListaEspera()) {
 		ganador = uno;
@@ -140,4 +141,15 @@ cReceptor* cBSA::compararReceptores(cReceptor* uno, cReceptor* dos) {
 		ganador = dos;
 	}
 	return ganador;
+}
+cFechas* cBSA::CompararFechas(cReceptor* fecha1, cReceptor* fecha2) {
+	int fechaUno, fechaDos;
+	cFechas diferencia1, diferencia2, fechaHoy;
+	fechaHoy.setHoy();
+	fechaUno = diferencia1.HorasEntreFechas(fecha1->GetFechaListaEspera(), fechaHoy);
+	fechaDos = diferencia2.HorasEntreFechas(fecha2->GetFechaListaEspera(), fechaHoy);
+	if ((fechaUno - fechaDos) > 0)
+		return fecha1->GetFechaListaEspera();
+	else
+		return fecha2->GetFechaListaEspera();
 }

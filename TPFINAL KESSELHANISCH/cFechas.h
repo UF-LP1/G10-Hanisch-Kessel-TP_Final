@@ -17,9 +17,7 @@ public:
 	cFechas();
 	cFechas(int dia, int mes, int anio, int hora, int minutos);
 	~cFechas();
-
-	tm getFecha1();
-	cFechas* CompararFechas(cReceptor* fecha1, cReceptor* fecha2);
+	
 	static int HorasEntreFechas(cFechas* inicio, cFechas aux_fin);
 	void setHoy();
 	bool FechaCompleta();

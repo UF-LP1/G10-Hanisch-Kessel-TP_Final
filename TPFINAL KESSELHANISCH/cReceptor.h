@@ -3,7 +3,7 @@
 #define _CRECEPTOR_H
 #include "cPaciente.h"
 #include "cFechas.h"
-
+#include "cCentroSalud.h"
 using namespace std;
 class cReceptor : public cPaciente {
 protected:
