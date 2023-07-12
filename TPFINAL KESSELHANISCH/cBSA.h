@@ -7,6 +7,8 @@
 #include "cCentroSalud.h"
 #include "cFechas.h"
 #include "cFluidos.h"
+#include "cDonante.h"
+#include "cReceptor.h"
 
 class cBSA
 {

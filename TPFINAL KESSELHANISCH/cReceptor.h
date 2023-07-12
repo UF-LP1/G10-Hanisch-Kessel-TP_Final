@@ -25,9 +25,7 @@ public:
 	cFluidos* GetFluidoReceptor();
 	int GetPrioridadReceptor();
 	string ToStringReceptor() const;
-	void imprimir();
 	string getProvinciaReceptor();
-	friend ostream& operator<<(ostream& os, const cReceptor* receptor);
 	float getCantFP();
 };
 

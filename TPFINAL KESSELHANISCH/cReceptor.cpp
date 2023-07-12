@@ -39,12 +39,16 @@ void cReceptor::SetEstadoP(eEstadoReceptor NuevoEstado) {
 void cReceptor::SetFluidoReceptor(cFluidos* NuevoFluido) {
 	this->Fluido =  NuevoFluido;
 }
-string cReceptor::ToStringReceptor()const {}
-
-
-ostream& operator<<(ostream& os, const cReceptor* receptor) {
-	
+string cReceptor::ToStringReceptor()const {
+	return
+		"\n Nombre:" + Nombre +
+		"\n Numero de Telefono: " + NumeroTelefono +
+		"\n Fecha de nacimeiento: " + FechaNacimeinto->to_stringFecha() +
+		"\n Tipo de sangre: " + TipoDeSangreToString(Sangre);
 }
+
+
+
 
 
 string cReceptor::getProvinciaReceptor()
