@@ -4,7 +4,7 @@
 //aca quiero que haga un registro que muestre el donante, receptor, hospital, fecha de donacion
 //tambien quiero mostrar los donantes y receptores que estan en lista de espera
 
-/*en match ya tengo el dia que dono, el donante y el receptor. Podrua sacar el hospital tmb*/
+/*En match ya tengo el dia que dono, el donante y el receptor. Podria sacar el hospital tmb*/
 cRegistro::cRegistro()
 {
 }
@@ -29,7 +29,7 @@ void cRegistro::imprimirReceptores(vector<cReceptor*> ListReceptores)
 	cout << "Lista de Receptores:\n";
 	cout << "   Nombre  " << " || " << "   Fecha Ingreso  " << " || " << "   Fluido a recibir  " << " || " << "  Centro de Salud  " << " || " << endl;
 	for (int i = 0; i < ListReceptores.size(); i++) {
-		cout << ListReceptores[i]->GetNombre() << ListReceptores[i]->GetFechaListaEspera() << "|| " << ListReceptores[i]->GetFluidoReceptor() << "||" << ListReceptores[i]->GetCentroDeSalud() << "||" << endl;
+		cout << ListReceptores[i]->GetNombre()<<" || " << ListReceptores[i]->GetFechaListaEspera() << "|| " << ListReceptores[i]->GetFluidoReceptor() << "||" << ListReceptores[i]->GetCentroDeSalud() << "||" << endl;
 	}
 	cout << std::endl;
 	cout << "\n";
@@ -41,7 +41,7 @@ void cRegistro::imprimirCS(vector<cCentroSalud*> ListCentros)
 	cout << "   Centro de salud   " << " || " << "   Telefono   " << " || " << "   Partido  " << " || " << "  Provincia   " << " || " << endl;
 	for (int i = 0; i < ListCentros.size(); i++) {
 		
-		cout << ListCentros[i]->getNombreCS() << ListCentros[i]->getTelefonoCS() << "|| " << ListCentros[i]->getPartidoCS() << "||" << ListCentros[i]->getProvinciaCS() << "||" << endl;
+		cout << ListCentros[i]->getNombreCS()<<" || " << ListCentros[i]->getTelefonoCS() << " || " << ListCentros[i]->getPartidoCS() << "||" << ListCentros[i]->getProvinciaCS() << "||" << endl;
 	}
 	cout << std::endl;
 	cout << "\n";

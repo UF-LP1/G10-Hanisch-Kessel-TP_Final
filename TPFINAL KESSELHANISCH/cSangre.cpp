@@ -1,5 +1,5 @@
 #include "cSangre.h"
-
+int cSangre::tiempoMaximoS = 0;
 cSangre::cSangre( int tiempoMaximoS_) : cFluidos(){
 	
 	this->tiempoMaximoS = tiempoMaximoS_;
