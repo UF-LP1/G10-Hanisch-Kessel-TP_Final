@@ -7,6 +7,7 @@
 #include "cPaciente.h"
 #include "cFluidos.h"
 #include "cFechas.h"
+
 using namespace std;
 
 class cDonante : public cPaciente {
@@ -27,7 +28,6 @@ public:
     
     cFechas* getFechaExtraccionP();
     cFechas* getFechaNacimiento();
-    string getProvinciaDonante();
     float getVolumenDP();
     bool getSinTatuajes();
     bool getSinEnfermedadSagre();

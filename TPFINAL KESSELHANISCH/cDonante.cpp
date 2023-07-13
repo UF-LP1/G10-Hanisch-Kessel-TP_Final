@@ -23,10 +23,6 @@ cFechas* cDonante::getFechaNacimiento()
 	return FechaNacimeinto;
 }
 
-string cDonante::getProvinciaDonante()
-{
-	return CentroDeSalud->getProvinciaCS();
-}
 
 float cDonante::getVolumenDP() {
 	return this->volumenD;

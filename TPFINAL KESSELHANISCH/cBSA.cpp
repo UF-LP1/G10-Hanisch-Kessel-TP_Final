@@ -115,7 +115,7 @@ bool cBSA::coincidirFluido(cDonante* dona, cReceptor* rece) {
 
 int cBSA::contadorBSA(int priority, cDonante* don, cReceptor* rec) {
 	int contador = 0;
-	if (rec->GetPrioridadReceptor() == priority && rec->getProvinciaReceptor() == don->getProvinciaDonante()) {
+	if (rec->GetPrioridadReceptor() == priority && rec->getProvinciaReceptor() == don->GetCentroDeSalud()->getProvinciaCS() ){
 		contador++;
 	}   
 	return contador; 

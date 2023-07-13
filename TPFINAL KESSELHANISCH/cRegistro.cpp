@@ -54,7 +54,7 @@ void cRegistro::imprimirMatch(vector<cDonante*> ListDonantes, vector<cReceptor*>
 	cout << "   Receptor   " << " || " << "   Donante   " << " || " << "   Centro de Salud  " << " || " << "   Provinvia  " << " || " << "   Fecha de donacion   " << " || " << endl;
 	for (int i = 0; i < ListDonantes.size(); i++){
 		
-		cout  << ListDonantes[i]->GetNombre() << " || "  << ListReceptores[i]->GetNombre() << "|| " << ListDonantes[i]->GetCentroDeSalud() << "||" << ListDonantes[i]->getProvinciaDonante() << "||" <<  ListDonantes[i]->getFechaExtraccionP() << endl;
+		cout  << ListDonantes[i]->GetNombre() << " || "  << ListReceptores[i]->GetNombre() << "|| " << ListDonantes[i]->GetCentroDeSalud() << "||" << ListDonantes[i]->GetCentroDeSalud()->getProvinciaCS() << "||" << ListDonantes[i]->getFechaExtraccionP() << endl;
 	}
 	cout << std::endl;
 	cout << "\n";
