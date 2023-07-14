@@ -19,3 +19,7 @@ bool cMedula::verificarFechaMaxima(cFechas* fechaExtraccion) {
 	}
 	return true;
 }
+
+string cMedula::getNombre() {
+	return "Medula";
+}

@@ -13,5 +13,6 @@ public:
 	~cPlasma();
 
 	bool verificarFechaMaxima(cFechas* fechaExtraccion);
+	string getNombre();
 };
 #endif // !_CPLASMA_H

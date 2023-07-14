@@ -12,6 +12,7 @@ public:
 	~cMedula();
 
 	bool verificarFechaMaxima(cFechas* fechaExtraccion);
+	string getNombre();
 };
 
 #endif // !_CMEDULA_H

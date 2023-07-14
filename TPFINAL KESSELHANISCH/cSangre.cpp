@@ -18,3 +18,7 @@ bool cSangre::verificarFechaMaxima(cFechas* fechaExtraccion) {
 	}
 	return true;
 }
+
+string cSangre::getNombre() {
+	return "Sangre";
+}

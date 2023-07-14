@@ -17,3 +17,6 @@ bool cPlasma::verificarFechaMaxima(cFechas* fExtraccion) {
 	}
 	return true;
 }
+string cPlasma::getNombre() {
+	return "Plasma";
+}

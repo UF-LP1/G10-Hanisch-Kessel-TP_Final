@@ -36,7 +36,7 @@ int main() {
 
 	string rta;
 	cout << "Bienvenidos al banco de Sangre Argentino" << endl;
-	cout << "desea donar sangre? SI/NO" << endl; //en caso de que no es porque quiere recibir sangre
+	/*cout << "desea donar sangre? SI/NO" << endl; //en caso de que no es porque quiere recibir sangre
 	cin >> rta;
 
 	if (rta == "SI" || rta == "si" || rta == "Si") {
@@ -76,7 +76,20 @@ int main() {
 		catch (exception& e) {
 			std::cout << e.what() << endl;
 		}
-	}
+	}*/
+	centro1->IngresarPaciente(receptor1);
+	centro2->IngresarPaciente(receptor2);
+	centro3->IngresarPaciente(receptor3);
+	centro1->IngresarPaciente(donante3);
+	centro2->IngresarPaciente(donante1);
+	centro3->IngresarPaciente(donante3);
+	ListDonantes.push_back(donante1);
+	ListDonantes.push_back(donante2);
+	ListDonantes.push_back(donante3);
+	ListReceptores.push_back(receptor1);
+	ListReceptores.push_back(receptor2);
+	ListReceptores.push_back(receptor3);
+
 	try {
 
 		ListCentros.push_back(centro1);
@@ -88,7 +101,7 @@ int main() {
 		std::cout << e.what() << endl;
 	}
 
-	if (rta == "NO" || rta == "no" || rta == "No") {
+	/*if (rta == "NO" || rta == "no" || rta == "No") {
 		centro1->IngresarPaciente(receptor1);
 		centro2->IngresarPaciente(receptor2);
 		centro3->IngresarPaciente(receptor3);
@@ -103,7 +116,7 @@ int main() {
 			cout << "no se encontro un donante, ingresa a la lista de espera" << endl;
 		}
 		else	cout << "Realizando Donacion" << endl;
-	}
+	}*/
 
 	// imprimimos los registros
 	cRegistro* registro = new cRegistro();

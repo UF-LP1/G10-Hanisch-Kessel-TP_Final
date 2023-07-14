@@ -15,7 +15,8 @@ public:
 	cFluidos();
 	~cFluidos();
 
-	virtual bool verificarFechaMaxima(cFechas* fechaExtraccion); //esta rari, ver dsp. creo que el metodo en cada fluido es distinto asiq no igualo a 0
+	virtual bool verificarFechaMaxima(cFechas* fechaExtraccion); 
+	virtual string getNombre();//esta rari, ver dsp. creo que el metodo en cada fluido es distinto asiq no igualo a 0
 };
 
 #endif // !_CFLUIDOS_H

@@ -16,5 +16,6 @@ public:
 
 	
 	bool verificarFechaMaxima(cFechas* fechaExtraccion);
+	string getNombre();
 };
 #endif // !_CSANGRE_H
